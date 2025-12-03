@@ -1,0 +1,14 @@
+name: tfg-nisar
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy
+  - h5py
+  - rasterio
+  - loguru
+  - matplotlib
+  - jupyter
+  - pip
+  - pip:
+    - -r requirements.txt
