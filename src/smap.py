@@ -1,17 +1,17 @@
-"""Descarga granulos SMAP vía earthaccess con CLI flexible.
+r"""Descarga granulos SMAP vía earthaccess con CLI flexible.
 
 Ejemplos:
   # Descargar SPL3SMP (radiometro L3 36 km) de un día (global)
-  python src\smap.py --date 2015-06-15
+    python src/smap.py --date 2015-06-15
 
   # Descargar SPL3SMP + SPL3SMA (radar) misma fecha, global
-  python src\smap.py --date 2015-06-15 --also-radar
+    python src/smap.py --date 2015-06-15 --also-radar
 
   # Descargar sólo en una celda de ~36 km centrada en (lon,lat)=(-10,40)
-  python src\smap.py --date 2015-06-15 --cell-center -10,40 --also-radar
+    python src/smap.py --date 2015-06-15 --cell-center -10,40 --also-radar
 
   # Usar bbox genérico
-  python src\smap.py --date 2015-06-15 --bbox -10,35,10,45 --also-radar
+    python src/smap.py --date 2015-06-15 --bbox -10,35,10,45 --also-radar
 
   # Usar helper Boulder (~36 km alrededor)
   python src\smap.py --date 2015-06-15 --boulder-36km --also-radar
@@ -83,7 +83,11 @@ def parse_args() -> argparse.Namespace:
     # ---- Selección espacial
     p.add_argument(
         "--bbox",
-        help="minLon,minLat,maxLon,maxLat (opcional). Se ignora si usas --cell-center o --boulder-36km.",
+        nargs="+",
+        help=(
+            "minLon,minLat,maxLon,maxLat (opcional). Acepta una cadena con comas: '-104.8,39.8,-103.7,40.7' "
+            "o 4 valores separados por espacio: -104.8 39.8 -103.7 40.7. Se ignora si usas --cell-center o --boulder-36km."
+        ),
     )
     p.add_argument(
         "--boulder-36km",
@@ -156,12 +160,28 @@ def build_temporal(args: argparse.Namespace) -> Tuple[str, str]:
     return start_dt.strftime(fmt), end_dt.strftime(fmt)
 
 
-def parse_bbox(bbox_str: Optional[str]):
-    if not bbox_str:
+def parse_bbox(bbox_arg):
+    """Parsea el argumento --bbox.
+
+    bbox_arg may be None, a single string containing commas, or a list of strings
+    (when nargs is used). Returns a tuple(minLon,minLat,maxLon,maxLat) or None.
+    """
+    if not bbox_arg:
         return None
-    parts = bbox_str.split(",")
+
+    # If nargs produced a list
+    if isinstance(bbox_arg, (list, tuple)):
+        if len(bbox_arg) == 1:
+            s = bbox_arg[0]
+            parts = s.split(",")
+        else:
+            # multiple tokens provided, expect exactly 4
+            parts = list(bbox_arg)
+    else:
+        parts = str(bbox_arg).split(",")
+
     if len(parts) != 4:
-        raise SystemExit("--bbox formato invalido. Usa minLon,minLat,maxLon,maxLat")
+        raise SystemExit("--bbox formato invalido. Usa minLon,minLat,maxLon,maxLat o 4 valores separados por espacios")
     try:
         return tuple(float(p) for p in parts)
     except ValueError:

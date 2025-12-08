@@ -700,19 +700,35 @@ def reproject_to_template(
 # -----------------------------------------------------------------------------
 
 def prepare_smap_radiometer_radar(args) -> tuple[np.ndarray, np.ndarray]:
-    """Prepare and align SMAP TB and SMAP radar σ0 to a common grid."""
-    # 0) Template: if missing, create it from radiometer L3
-    if args.template and Path(args.template).exists():
-        tpl_path = args.template
-    else:
-        default_tpl = PROCESSED / "SMAP_L3_template_from_rad.tif"
-        out_tpl = args.template or str(default_tpl)
-        print(f"[INFO] Template not found → creating from SMAP L3 radiometer: {out_tpl}")
-        tpl_path = make_template_from_smap_l3(args.smap_l3_rad, out_tpl)
-        args.template = tpl_path
+    """Prepare and align SMAP TB and SMAP radar σ0 on a 36 km EASE2 grid.
+"""
 
-    tpl_crs, tpl_transform, tpl_h, tpl_w, _ = load_template(tpl_path)
+    # 0) Plantilla coarse 36 km derivada del radiometer L3
+    if args.template is not None:
+        tpl_path = Path(args.template)
+    else:
+        tpl_path = PROCESSED / "SMAP_L3_template_36km_from_rad.tif"
+
+    if not tpl_path.exists():
+        print(f"[INFO] Template not found → creating 36 km template from SMAP L3 radiometer: {tpl_path}")
+        tpl_path = Path(make_template_from_smap_l3(args.smap_l3_rad, str(tpl_path)))
+
+    # Leer plantilla y comprobar que sea ~36 km
+    tpl_crs, tpl_transform, tpl_h, tpl_w, _ = load_template(str(tpl_path))
     tpl_shape = (tpl_h, tpl_w)
+
+    dx = tpl_transform.a
+    dy = -tpl_transform.e
+    if not (35000.0 <= abs(dx) <= 37000.0 and 35000.0 <= abs(dy) <= 37000.0):
+        raise ValueError(
+            f"Template pixel size is not ~36 km (dx={dx}, dy={dy}). "
+            "This step2 is defined to run on a coarse 36 km grid. "
+            "Remove --template or provide a 36 km EASE2 template."
+        )
+
+    # Actualizamos args.template por si se ha creado una nueva
+    args.template = str(tpl_path)
+
 
     # 1) SMAP radiometer TB
     TBc_2d = get_TBc_2d(
@@ -739,8 +755,9 @@ def prepare_smap_radiometer_radar(args) -> tuple[np.ndarray, np.ndarray]:
         tpl_transform,
         tpl_crs,
         tpl_shape,
-        resampling=ResampEnum.bilinear,
+        resampling=ResampEnum.average,  
     )
+
 
 
 
@@ -764,7 +781,11 @@ def prepare_smap_radiometer_radar(args) -> tuple[np.ndarray, np.ndarray]:
         )
 
     # 3) Save NPZ
-    out_npz = INTERIM / "aligned_step2_smap.npz"
+    # 3) Save NPZ
+    # Construimos nombre del fichero con la fecha
+    date_str = (args.date or "nodate").replace("-", "")  # 2015-06-15 → 20150615
+    out_npz = INTERIM / f"aligned-smap-{date_str}.npz"
+
     np.savez_compressed(
         out_npz,
         TBc_2d=TBc_2d,
@@ -785,6 +806,9 @@ def prepare_smap_radiometer_radar(args) -> tuple[np.ndarray, np.ndarray]:
             dtype=object,
         ),
     )
+    print(f"[OK] Saved {out_npz}")
+    return TBc_2d, S_pp_db
+
     print(f"[OK] Saved {out_npz}")
     return TBc_2d, S_pp_db
 
