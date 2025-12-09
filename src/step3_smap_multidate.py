@@ -1,44 +1,26 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-step3_smap_multidate.py — Estimate coarse-scale active–passive parameter β(C)
-from multi-temporal SMAP radiometer–radar anomalies over Boulder.
+step3_smap_multidate_1d.py — Estimate coarse-scale active–passive parameter
+β(C) from multi-temporal SMAP radiometer–radar anomalies.
 
-This script:
-    - Reads multiple NPZ files produced by step2_smap_boulder.py
-      (each corresponding to one date / overpass).
-    - Builds a time stack of TB and co-pol backscatter σ0 on the common 36 km grid.
-    - Computes temporal anomalies and fits, per pixel, the linear model:
+Model:
+    ΔTB(C, t_k) ≈ β(C) Δσ_pp(C, t_k)
 
-          ΔTB(C, t_k) ≈ a(C) Δσ_pp(C, t_k)
-
-      (no cross-pol term available for SMAP radar here).
-
-    - Outputs β(C) = a(C) and quality diagnostics.
-
-Inputs (Step 2 outputs):
-    A set of NPZ files, typically in data/interim/, each containing at least:
+Inputs:
+    A set of NPZ files (Step 2 outputs) with at least:
         - TBc_2d   : 2D array of brightness temperature [K]
         - S_pp_dB  : 2D array of co-pol backscatter [dB]
-        - crs_wkt, transform, height, width, meta
-
-    Files are selected via a glob pattern, e.g.:
-        data/interim/step2_smap_boulder_*.npz
+        - crs_wkt, transform, height, width (grid metadata)
 
 Outputs:
-    data/interim/step3_smap_multidate_inversion_params.npz with:
+    data/interim/step3_smap_multidate_1d_inversion_params.npz with:
         - beta_K_per_dB   : β(C) [K/dB]
-        - a_coef          : a(C) [K/dB]  (same as beta)
         - n_samples       : number of time samples used per pixel
         - r2              : coefficient of determination per pixel
         - crs_wkt, transform, height, width
-        - files           : list of input filenames (for traceability)
-        - meta            : text metadata about the run
-
-Usage example:
-    python step3_smap_multidate.py \
-        --stack-pattern "data/interim/step2_smap_boulder_*.npz" \
-        --out "data/interim/step3_smap_multidate_inversion_params.npz"
+        - files           : list of input filenames
+        - meta            : text metadata
 """
 
 import argparse
@@ -47,6 +29,7 @@ import warnings
 from pathlib import Path
 
 import numpy as np
+
 
 # -----------------------------
 # Project paths
@@ -63,15 +46,14 @@ PROCESSED.mkdir(parents=True, exist_ok=True)
 # Loading utilities
 # -----------------------------
 def load_time_stack(pattern: str):
-    """Load multi-temporal stacks TB and S_pp from a set of Step 2 NPZ files.
+    """Load multi-temporal stacks TB, S_pp from Step 2 NPZ files.
 
     Args:
-        pattern: Glob pattern for NPZ files
-                 (e.g., 'data/interim/step2_smap_boulder_*.npz').
+        pattern: Glob pattern for NPZ files.
 
     Returns:
-        TB_stack   : np.ndarray (T, H, W) of brightness temperature [K]
-        Spp_stack  : np.ndarray (T, H, W) of co-pol backscatter [dB]
+        TB_stack   : np.ndarray (T, H, W)
+        Spp_stack  : np.ndarray (T, H, W)
         meta       : dict with grid metadata and list of files
     """
     files = sorted(glob.glob(pattern))
@@ -85,11 +67,15 @@ def load_time_stack(pattern: str):
     for i, fp in enumerate(files):
         npz = np.load(fp, allow_pickle=True)
         if i == 0:
-            if "TBc_2d" not in npz or "S_pp_dB" not in npz:
-                raise KeyError(
-                    f"File {fp} is missing required keys 'TBc_2d' and 'S_pp_dB'. "
-                    "Make sure it was produced by step2_smap_boulder.py."
-                )
+            # Check required keys
+            for key in ("TBc_2d", "S_pp_dB"):
+                if key not in npz:
+                    raise KeyError(
+                        f"File {fp} is missing required key '{key}'. "
+                        "Make sure it was produced by the new Step 2 "
+                        "with 'TBc_2d' and 'S_pp_dB'."
+                    )
+
             h, w = npz["TBc_2d"].shape
             first_meta["height"] = int(npz.get("height", h))
             first_meta["width"] = int(npz.get("width", w))
@@ -136,76 +122,76 @@ def estimate_beta_per_pixel(
     dTB: np.ndarray,
     dSpp: np.ndarray,
     min_samples_1d: int = 6,
-    eps_a: float = 1e-3,
+    ridge_lambda: float = 0.0,
+    eps_beta: float = 1e-3,
 ):
-    """Estimate a(C) and β(C) from ΔTB ~ a(C) Δσ_pp per pixel (1D regression only).
+    """Estimate β(C) from ΔTB ~ β Δσ_pp per pixel (1D regression).
 
     Args:
-        dTB:  (T, H, W) anomalies of TB.
-        dSpp:(T, H, W) anomalies of σ_pp [dB].
-        min_samples_1d: Minimum number of valid samples for regression.
-        eps_a: Threshold below which a(C) is considered too small.
+        dTB      : (T, H, W) anomalies of TB.
+        dSpp     : (T, H, W) anomalies of σ_pp [dB].
+        min_samples_1d: Minimum number of valid samples for 1D regression.
+        ridge_lambda : Ridge regularization parameter (λ >= 0). For 1D,
+                       this effectively adds λ to ∑x².
+        eps_beta : Threshold below which |β| is set to NaN.
 
     Returns:
-        beta       : β(C) = a(C) [K/dB]
-        a_coef     : a(C) [K/dB]
+        beta       : β(C) [K/dB]
         n_samples  : number of samples used per pixel
         r2         : coefficient of determination per pixel
     """
     T, H, W = dTB.shape
     n_pix = H * W
 
-    # Flatten spatial dimensions
-    y_all = dTB.reshape(T, n_pix)
-    x1_all = dSpp.reshape(T, n_pix)
+    # Flatten spatial dims
+    y_all = dTB.reshape(T, n_pix)   # (T, P)
+    x_all = dSpp.reshape(T, n_pix)  # (T, P)
 
-    a_flat = np.full(n_pix, np.nan, dtype=np.float32)
     beta_flat = np.full(n_pix, np.nan, dtype=np.float32)
     n_flat = np.zeros(n_pix, dtype=np.int16)
     r2_flat = np.full(n_pix, np.nan, dtype=np.float32)
 
     for i in range(n_pix):
         y = y_all[:, i]
-        x = x1_all[:, i]
+        x = x_all[:, i]
 
         mask = np.isfinite(y) & np.isfinite(x)
         n = int(mask.sum())
         if n < min_samples_1d:
-            # Not enough temporal samples → leave NaNs
             continue
 
         yy = y[mask]
         xx = x[mask]
 
-        denom = float(np.nansum(xx * xx))
-        if denom == 0.0:
+        # Normal equations for 1D: (∑x² + λ) β = ∑ x y
+        sum_xx = float(np.sum(xx * xx))
+        sum_xy = float(np.sum(xx * yy))
+
+        denom = sum_xx + ridge_lambda
+        if denom <= 0:
             continue
 
-        a_val = float(np.nansum(xx * yy) / denom)
-        n_used = n
+        beta_val = sum_xy / denom
 
-        # R^2 for 1D fit
-        y_hat = a_val * xx
-        ss_res = float(np.nansum((yy - y_hat) ** 2))
-        ss_tot = float(np.nansum((yy - np.nanmean(yy)) ** 2))
+        # Predicted TB and R²
+        y_hat = beta_val * xx
+        ss_res = float(np.sum((yy - y_hat) ** 2))
+        ss_tot = float(np.sum((yy - np.mean(yy)) ** 2))
         r2_val = 1.0 - ss_res / ss_tot if ss_tot > 0 else np.nan
 
-        a_flat[i] = a_val
-        n_flat[i] = n_used
-        r2_flat[i] = r2_val
-
-        # β = a, but drop values that are too small
-        if abs(a_val) > eps_a:
-            beta_flat[i] = a_val
+        n_flat[i] = n
+        if abs(beta_val) > eps_beta:
+            beta_flat[i] = beta_val
         else:
             beta_flat[i] = np.nan
 
+        r2_flat[i] = r2_val
+
     beta = beta_flat.reshape(H, W)
-    a_coef = a_flat.reshape(H, W)
     n_samples = n_flat.reshape(H, W)
     r2 = r2_flat.reshape(H, W)
 
-    return beta, a_coef, n_samples, r2
+    return beta, n_samples, r2
 
 
 # -----------------------------
@@ -214,36 +200,42 @@ def estimate_beta_per_pixel(
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
-            "Step 3 (multi-date SMAP): estimate β(C) from SMAP radiometer–radar "
-            "anomalies using multiple step2_smap_boulder NPZ files."
+            "Step 3 (multi-date SMAP, 1D): estimate β(C) from "
+            "SMAP radiometer–radar anomalies using co-pol stacks only."
         )
     )
     parser.add_argument(
         "--stack-pattern",
         type=str,
-        default=str(INTERIM / "step2_smap_boulder_*.npz"),
+        default=str(INTERIM / "step2_smap_l1c_*.npz"),
         help=(
             "Glob pattern for Step 2 NPZ files (default: "
-            "data/interim/step2_smap_boulder_*.npz)."
+            "data/interim/step2_smap_l1c_*.npz)."
         ),
     )
     parser.add_argument(
         "--out",
         type=str,
-        default=str(INTERIM / "step3_smap_multidate_inversion_params.npz"),
+        default=str(INTERIM / "step3_smap_multidate_1d_inversion_params.npz"),
         help="Output NPZ path for β maps.",
     )
     parser.add_argument(
         "--min-samples-1d",
         type=int,
         default=6,
-        help="Minimum valid time samples for 1D regression (TB ~ Δσ_pp).",
+        help="Minimum valid time samples for 1D regression (ΔTB ~ βΔσ_pp).",
     )
     parser.add_argument(
-        "--eps-a",
+        "--ridge-lambda",
+        type=float,
+        default=0.0,
+        help="Ridge regularization parameter λ (default 0: ordinary least squares).",
+    )
+    parser.add_argument(
+        "--eps-beta",
         type=float,
         default=1e-3,
-        help="Threshold |a| > eps_a below which β is set to NaN.",
+        help="Threshold |β| > eps_beta below which β is set to NaN.",
     )
     return parser.parse_args()
 
@@ -254,11 +246,15 @@ def main() -> None:
     print(f"[INFO] Loading time stack from pattern: {args.stack_pattern}")
     TB_stack, Spp_stack, meta = load_time_stack(args.stack_pattern)
 
-    print(f"[INFO] Stack shapes: TB={TB_stack.shape}, Spp={Spp_stack.shape}")
+    print(
+        f"[INFO] Stack shapes: TB={TB_stack.shape}, "
+        f"Spp={Spp_stack.shape}"
+    )
     T, H, W = TB_stack.shape
     if T < args.min_samples_1d:
         warnings.warn(
-            f"Only T={T} time samples found. This is less than min_samples_1d={args.min_samples_1d}. "
+            f"Only T={T} time samples found. This is less than "
+            f"min_samples_1d={args.min_samples_1d}. "
             "Most pixels may end up with NaN β due to insufficient temporal sampling."
         )
 
@@ -266,12 +262,13 @@ def main() -> None:
     _, dTB = compute_anomalies(TB_stack)
     _, dSpp = compute_anomalies(Spp_stack)
 
-    print("[INFO] Estimating per-pixel coefficients a(C), β(C)...")
-    beta, a_coef, n_samples, r2 = estimate_beta_per_pixel(
+    print("[INFO] Estimating per-pixel coefficient β(C)...")
+    beta, n_samples, r2 = estimate_beta_per_pixel(
         dTB,
         dSpp,
         min_samples_1d=args.min_samples_1d,
-        eps_a=args.eps_a,
+        ridge_lambda=args.ridge_lambda,
+        eps_beta=args.eps_beta,
     )
 
     out_path = Path(args.out)
@@ -280,7 +277,6 @@ def main() -> None:
     np.savez_compressed(
         out_path,
         beta_K_per_dB=beta,
-        a_coef=a_coef,
         n_samples=n_samples,
         r2=r2,
         crs_wkt=meta["crs_wkt"],
@@ -292,13 +288,14 @@ def main() -> None:
             [
                 "β(C) estimated from multi-temporal SMAP ΔTB and Δσ_pp via 1D least squares",
                 f"min_samples_1d={args.min_samples_1d}",
-                f"eps_a={args.eps_a}",
+                f"ridge_lambda={args.ridge_lambda}",
+                f"eps_beta={args.eps_beta}",
                 f"stack_pattern={args.stack_pattern}",
             ],
             dtype=object,
         ),
     )
-    print(f"[OK] Saved multi-date inversion parameters to {out_path}")
+    print(f"[OK] Saved multi-date 1D inversion parameters to {out_path}")
 
 
 if __name__ == "__main__":
@@ -307,6 +304,3 @@ if __name__ == "__main__":
     except Exception as e:
         warnings.warn(f"[ERROR] {e}")
         raise
-
-
-"""python step3_smap_multidate.py --stack-pattern "data/interim/step2_smap_boulder_*.npz" """
