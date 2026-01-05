@@ -1,0 +1,1356 @@
+================================================================================
+[INFO] Ejecutando rango: 2015-05-01 -> 2015-07-04
+[INFO] RAW=C:\Users\ortuo\tfgirati\tfg-nisar\data\raw
+[INFO] TEMPLATE=C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif
+[INFO] STEP2=C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py
+================================================================================
+
+[RUN] 2015-05-01
+      L3  : SMAP_L3_SM_P_20150501_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150501_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01316_D_20150501T132526_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-01 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150501_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150501_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01316_D_20150501T132526_R11850_001.h5
+[OK]  2015-05-01: step2 terminó bien
+
+[RUN] 2015-05-02
+      L3  : SMAP_L3_SM_P_20150502_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150502_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01323_A_20150502T000526_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-02 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150502_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150502_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01323_A_20150502T000526_R11850_001.h5
+[OK]  2015-05-02: step2 terminó bien
+
+[RUN] 2015-05-03
+      L3  : SMAP_L3_SM_P_20150503_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150503_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01345_D_20150503T130049_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-03 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150503_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150503_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01345_D_20150503T130049_R11850_001.h5
+[OK]  2015-05-03: step2 terminó bien
+
+[RUN] 2015-05-04
+      L3  : SMAP_L3_SM_P_20150504_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150504_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01360_D_20150504T133750_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-04 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150504_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150504_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01360_D_20150504T133750_R11850_001.h5
+[OK]  2015-05-04: step2 terminó bien
+
+[RUN] 2015-05-05
+      L3  : SMAP_L3_SM_P_20150505_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150505_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01367_A_20150505T001751_R11850_002.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-05 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150505_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150505_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01367_A_20150505T001751_R11850_002.h5
+[OK]  2015-05-05: step2 terminó bien
+
+[RUN] 2015-05-06
+      L3  : SMAP_L3_SM_P_20150506_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150506_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01389_D_20150506T131314_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-06 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150506_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150506_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01389_D_20150506T131314_R11850_001.h5
+[OK]  2015-05-06: step2 terminó bien
+
+[RUN] 2015-05-07
+      L3  : SMAP_L3_SM_P_20150507_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150507_R13080_001.h5
+      L1C : (none)
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-07 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150507_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150507_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif
+[OK]  2015-05-07: step2 terminó bien
+
+[RUN] 2015-05-08
+      L3  : SMAP_L3_SM_P_20150508_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150508_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01418_D_20150508T124842_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-08 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150508_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150508_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01418_D_20150508T124842_R11850_001.h5
+[OK]  2015-05-08: step2 terminó bien
+
+[RUN] 2015-05-09
+      L3  : SMAP_L3_SM_P_20150509_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150509_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01433_D_20150509T132539_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-09 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150509_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150509_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01433_D_20150509T132539_R11850_001.h5
+[WARN] 2015-05-09: step2 falló con returncode=1 (sigue con el siguiente día)
+
+[RUN] 2015-05-10
+      L3  : SMAP_L3_SM_P_20150510_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150510_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01440_A_20150510T000535_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-10 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150510_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150510_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01440_A_20150510T000535_R11850_001.h5
+[OK]  2015-05-10: step2 terminó bien
+
+[RUN] 2015-05-11
+      L3  : SMAP_L3_SM_P_20150511_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150511_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01462_D_20150511T130102_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-11 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150511_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150511_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01462_D_20150511T130102_R11850_001.h5
+[OK]  2015-05-11: step2 terminó bien
+
+[RUN] 2015-05-12
+      L3  : SMAP_L3_SM_P_20150512_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150512_R13080_001.h5
+      L1C : (none)
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-12 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150512_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150512_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif
+[OK]  2015-05-12: step2 terminó bien
+[SKIP] 2015-05-13: falta L3 o radar en C:\Users\ortuo\tfgirati\tfg-nisar\data\raw
+
+[RUN] 2015-05-14
+      L3  : SMAP_L3_SM_P_20150514_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150514_R13080_001.h5
+      L1C : (none)
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-14 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150514_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150514_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif
+[OK]  2015-05-14: step2 terminó bien
+
+[RUN] 2015-05-15
+      L3  : SMAP_L3_SM_P_20150515_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150515_R13080_001.h5
+      L1C : (none)
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-15 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150515_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150515_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif
+[OK]  2015-05-15: step2 terminó bien
+
+[RUN] 2015-05-16
+      L3  : SMAP_L3_SM_P_20150516_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150516_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01535_D_20150516T124849_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-16 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150516_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150516_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01535_D_20150516T124849_R11850_001.h5
+[OK]  2015-05-16: step2 terminó bien
+
+[RUN] 2015-05-17
+      L3  : SMAP_L3_SM_P_20150517_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150517_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01550_D_20150517T132541_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-17 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150517_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150517_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01550_D_20150517T132541_R11850_001.h5
+[WARN] 2015-05-17: step2 falló con returncode=1 (sigue con el siguiente día)
+
+[RUN] 2015-05-18
+      L3  : SMAP_L3_SM_P_20150518_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150518_R13080_001.h5
+      L1C : (none)
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-18 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150518_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150518_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif
+[WARN] 2015-05-18: step2 falló con returncode=1 (sigue con el siguiente día)
+
+[RUN] 2015-05-19
+      L3  : SMAP_L3_SM_P_20150519_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150519_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01579_D_20150519T130104_R11850_002.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-19 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150519_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150519_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01579_D_20150519T130104_R11850_002.h5
+[OK]  2015-05-19: step2 terminó bien
+
+[RUN] 2015-05-20
+      L3  : SMAP_L3_SM_P_20150520_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150520_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01593_A_20150520T115533_R11850_002.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-20 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150520_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150520_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01593_A_20150520T115533_R11850_002.h5
+[OK]  2015-05-20: step2 terminó bien
+
+[RUN] 2015-05-21
+      L3  : SMAP_L3_SM_P_20150521_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150521_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01601_A_20150521T001801_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-21 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150521_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150521_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01601_A_20150521T001801_R11850_001.h5
+[OK]  2015-05-21: step2 terminó bien
+
+[RUN] 2015-05-22
+      L3  : SMAP_L3_SM_P_20150522_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150522_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01623_D_20150522T131324_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-22 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150522_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150522_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01623_D_20150522T131324_R11850_001.h5
+[OK]  2015-05-22: step2 terminó bien
+
+[RUN] 2015-05-23
+      L3  : SMAP_L3_SM_P_20150523_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150523_R13080_001.h5
+      L1C : (none)
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-23 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150523_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150523_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif
+[OK]  2015-05-23: step2 terminó bien
+
+[RUN] 2015-05-24
+      L3  : SMAP_L3_SM_P_20150524_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150524_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01652_D_20150524T124847_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-24 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150524_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150524_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01652_D_20150524T124847_R11850_001.h5
+[OK]  2015-05-24: step2 terminó bien
+
+[RUN] 2015-05-25
+      L3  : SMAP_L3_SM_P_20150525_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150525_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01667_D_20150525T132543_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-25 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150525_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150525_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01667_D_20150525T132543_R11850_001.h5
+[OK]  2015-05-25: step2 terminó bien
+
+[RUN] 2015-05-26
+      L3  : SMAP_L3_SM_P_20150526_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150526_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01674_A_20150526T000543_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-26 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150526_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150526_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01674_A_20150526T000543_R11850_001.h5
+[OK]  2015-05-26: step2 terminó bien
+
+[RUN] 2015-05-27
+      L3  : SMAP_L3_SM_P_20150527_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150527_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01696_D_20150527T130106_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-27 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150527_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150527_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01696_D_20150527T130106_R11850_001.h5
+[OK]  2015-05-27: step2 terminó bien
+
+[RUN] 2015-05-28
+      L3  : SMAP_L3_SM_P_20150528_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150528_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01711_D_20150528T133802_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-28 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150528_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150528_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01711_D_20150528T133802_R11850_001.h5
+[OK]  2015-05-28: step2 terminó bien
+
+[RUN] 2015-05-29
+      L3  : SMAP_L3_SM_P_20150529_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150529_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01718_A_20150529T001803_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-29 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150529_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150529_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01718_A_20150529T001803_R11850_001.h5
+[OK]  2015-05-29: step2 terminó bien
+
+[RUN] 2015-05-30
+      L3  : SMAP_L3_SM_P_20150530_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150530_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01740_D_20150530T131325_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-30 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150530_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150530_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01740_D_20150530T131325_R11850_001.h5
+[OK]  2015-05-30: step2 terminó bien
+
+[RUN] 2015-05-31
+      L3  : SMAP_L3_SM_P_20150531_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150531_R13080_001.h5
+      L1C : (none)
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-31 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150531_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150531_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif
+[OK]  2015-05-31: step2 terminó bien
+
+[RUN] 2015-06-01
+      L3  : SMAP_L3_SM_P_20150601_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150601_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01769_D_20150601T124848_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-01 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150601_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150601_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01769_D_20150601T124848_R11850_001.h5
+[OK]  2015-06-01: step2 terminó bien
+
+[RUN] 2015-06-02
+      L3  : SMAP_L3_SM_P_20150602_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150602_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01784_D_20150602T132540_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-02 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150602_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150602_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01784_D_20150602T132540_R11850_001.h5
+[OK]  2015-06-02: step2 terminó bien
+
+[RUN] 2015-06-03
+      L3  : SMAP_L3_SM_P_20150603_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150603_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01791_A_20150603T000540_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-03 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150603_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150603_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01791_A_20150603T000540_R11850_001.h5
+[OK]  2015-06-03: step2 terminó bien
+
+[RUN] 2015-06-04
+      L3  : SMAP_L3_SM_P_20150604_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150604_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01813_D_20150604T130103_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-04 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150604_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150604_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01813_D_20150604T130103_R11850_001.h5
+[OK]  2015-06-04: step2 terminó bien
+
+[RUN] 2015-06-05
+      L3  : SMAP_L3_SM_P_20150605_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150605_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01828_D_20150605T133759_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-05 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150605_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150605_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01828_D_20150605T133759_R11850_001.h5
+[OK]  2015-06-05: step2 terminó bien
+
+[RUN] 2015-06-06
+      L3  : SMAP_L3_SM_P_20150606_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150606_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01835_A_20150606T001759_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-06 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150606_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150606_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01835_A_20150606T001759_R11850_001.h5
+[OK]  2015-06-06: step2 terminó bien
+
+[RUN] 2015-06-07
+      L3  : SMAP_L3_SM_P_20150607_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150607_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01864_A_20150607T235322_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-07 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150607_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150607_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01864_A_20150607T235322_R11850_001.h5
+[OK]  2015-06-07: step2 terminó bien
+
+[RUN] 2015-06-08
+      L3  : SMAP_L3_SM_P_20150608_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150608_R13080_001.h5
+      L1C : (none)
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-08 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150608_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150608_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif
+[OK]  2015-06-08: step2 terminó bien
+
+[RUN] 2015-06-09
+      L3  : SMAP_L3_SM_P_20150609_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150609_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01886_D_20150609T124844_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-09 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150609_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150609_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01886_D_20150609T124844_R11850_001.h5
+[OK]  2015-06-09: step2 terminó bien
+
+[RUN] 2015-06-10
+      L3  : SMAP_L3_SM_P_20150610_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150610_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01901_D_20150610T132536_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-10 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150610_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150610_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01901_D_20150610T132536_R11850_001.h5
+[OK]  2015-06-10: step2 terminó bien
+
+[RUN] 2015-06-11
+      L3  : SMAP_L3_SM_P_20150611_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150611_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01908_A_20150611T000537_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-11 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150611_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150611_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01908_A_20150611T000537_R11850_001.h5
+[OK]  2015-06-11: step2 terminó bien
+
+[RUN] 2015-06-12
+      L3  : SMAP_L3_SM_P_20150612_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150612_R13080_001.h5
+      L1C : (none)
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-12 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150612_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150612_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif
+[OK]  2015-06-12: step2 terminó bien
+
+[RUN] 2015-06-13
+      L3  : SMAP_L3_SM_P_20150613_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150613_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01945_D_20150613T133755_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-13 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150613_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150613_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01945_D_20150613T133755_R11850_001.h5
+[OK]  2015-06-13: step2 terminó bien
+
+[RUN] 2015-06-14
+      L3  : SMAP_L3_SM_P_20150614_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150614_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01952_A_20150614T001756_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-14 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150614_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150614_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01952_A_20150614T001756_R11850_001.h5
+[OK]  2015-06-14: step2 terminó bien
+
+[RUN] 2015-06-15
+      L3  : SMAP_L3_SM_P_20150615_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150615_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01974_D_20150615T131314_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-15 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150615_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150615_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01974_D_20150615T131314_R11850_001.h5
+[OK]  2015-06-15: step2 terminó bien
+[SKIP] 2015-06-16: falta L3 o radar en C:\Users\ortuo\tfgirati\tfg-nisar\data\raw
+
+[RUN] 2015-06-17
+      L3  : SMAP_L3_SM_P_20150617_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150617_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02010_A_20150617T232836_R11850_002.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-17 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150617_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150617_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02010_A_20150617T232836_R11850_002.h5
+[OK]  2015-06-17: step2 terminó bien
+
+[RUN] 2015-06-18
+      L3  : SMAP_L3_SM_P_20150618_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150618_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02018_D_20150618T132532_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-18 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150618_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150618_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02018_D_20150618T132532_R11850_001.h5
+[OK]  2015-06-18: step2 terminó bien
+
+[RUN] 2015-06-19
+      L3  : SMAP_L3_SM_P_20150619_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150619_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02025_A_20150619T000528_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-19 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150619_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150619_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02025_A_20150619T000528_R11850_001.h5
+[OK]  2015-06-19: step2 terminó bien
+
+[RUN] 2015-06-20
+      L3  : SMAP_L3_SM_P_20150620_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150620_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02047_D_20150620T130050_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-20 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150620_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150620_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02047_D_20150620T130050_R11850_001.h5
+[OK]  2015-06-20: step2 terminó bien
+
+[RUN] 2015-06-21
+      L3  : SMAP_L3_SM_P_20150621_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150621_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02062_D_20150621T133746_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-21 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150621_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150621_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02062_D_20150621T133746_R11850_001.h5
+[OK]  2015-06-21: step2 terminó bien
+
+[RUN] 2015-06-22
+      L3  : SMAP_L3_SM_P_20150622_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150622_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02069_A_20150622T001743_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-22 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150622_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150622_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02069_A_20150622T001743_R11850_001.h5
+[OK]  2015-06-22: step2 terminó bien
+
+[RUN] 2015-06-23
+      L3  : SMAP_L3_SM_P_20150623_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150623_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02098_A_20150623T235305_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-23 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150623_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150623_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02098_A_20150623T235305_R11850_001.h5
+[OK]  2015-06-23: step2 terminó bien
+
+[RUN] 2015-06-24
+      L3  : SMAP_L3_SM_P_20150624_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150624_R13080_001.h5
+      L1C : (none)
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-24 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150624_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150624_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif
+[OK]  2015-06-24: step2 terminó bien
+
+[RUN] 2015-06-25
+      L3  : SMAP_L3_SM_P_20150625_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150625_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02127_A_20150625T232824_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-25 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150625_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150625_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02127_A_20150625T232824_R11850_001.h5
+[OK]  2015-06-25: step2 terminó bien
+
+[RUN] 2015-06-26
+      L3  : SMAP_L3_SM_P_20150626_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150626_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02135_D_20150626T132520_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-26 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150626_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150626_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02135_D_20150626T132520_R11850_001.h5
+[OK]  2015-06-26: step2 terminó bien
+
+[RUN] 2015-06-27
+      L3  : SMAP_L3_SM_P_20150627_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150627_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02142_A_20150627T000520_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-27 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150627_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150627_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02142_A_20150627T000520_R11850_001.h5
+[OK]  2015-06-27: step2 terminó bien
+
+[RUN] 2015-06-28
+      L3  : SMAP_L3_SM_P_20150628_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150628_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02164_D_20150628T130038_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-28 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150628_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150628_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02164_D_20150628T130038_R11850_001.h5
+[OK]  2015-06-28: step2 terminó bien
+
+[RUN] 2015-06-29
+      L3  : SMAP_L3_SM_P_20150629_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150629_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02179_D_20150629T133734_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-29 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150629_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150629_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02179_D_20150629T133734_R11850_001.h5
+[OK]  2015-06-29: step2 terminó bien
+
+[RUN] 2015-06-30
+      L3  : SMAP_L3_SM_P_20150630_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150630_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02186_A_20150630T001731_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-30 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150630_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150630_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02186_A_20150630T001731_R11850_001.h5
+[OK]  2015-06-30: step2 terminó bien
+
+[RUN] 2015-07-01
+      L3  : SMAP_L3_SM_P_20150701_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150701_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02208_D_20150701T131252_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-07-01 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150701_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150701_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02208_D_20150701T131252_R11850_001.h5
+[OK]  2015-07-01: step2 terminó bien
+
+[RUN] 2015-07-02
+      L3  : SMAP_L3_SM_P_20150702_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150702_R13080_001.h5
+      L1C : (none)
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-07-02 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150702_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150702_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif
+[OK]  2015-07-02: step2 terminó bien
+
+[RUN] 2015-07-03
+      L3  : SMAP_L3_SM_P_20150703_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150703_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02237_D_20150703T124810_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-07-03 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150703_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150703_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02237_D_20150703T124810_R11850_001.h5
+[OK]  2015-07-03: step2 terminó bien
+
+[RUN] 2015-07-04
+      L3  : SMAP_L3_SM_P_20150704_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150704_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02252_D_20150704T132507_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-07-04 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150704_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150704_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02252_D_20150704T132507_R11850_001.h5
+[OK]  2015-07-04: step2 terminó bien
+
+[DONE] Fin del rango.
+[LOG]  C:\Users\ortuo\tfgirati\tfg-nisar\data\interim\run_step2_range.log
+================================================================================
+[INFO] Ejecutando rango: 2015-05-01 -> 2015-07-04
+[INFO] RAW=C:\Users\ortuo\tfgirati\tfg-nisar\data\raw
+[INFO] TEMPLATE=C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif
+[INFO] STEP2=C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py
+================================================================================
+
+[RUN] 2015-05-01
+      L3  : SMAP_L3_SM_P_20150501_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150501_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01316_D_20150501T132526_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-01 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150501_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150501_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01316_D_20150501T132526_R11850_001.h5
+[OK]  2015-05-01: step2 terminó bien
+
+[RUN] 2015-05-02
+      L3  : SMAP_L3_SM_P_20150502_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150502_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01323_A_20150502T000526_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-02 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150502_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150502_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01323_A_20150502T000526_R11850_001.h5
+[OK]  2015-05-02: step2 terminó bien
+
+[RUN] 2015-05-03
+      L3  : SMAP_L3_SM_P_20150503_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150503_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01345_D_20150503T130049_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-03 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150503_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150503_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01345_D_20150503T130049_R11850_001.h5
+[OK]  2015-05-03: step2 terminó bien
+
+[RUN] 2015-05-04
+      L3  : SMAP_L3_SM_P_20150504_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150504_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01360_D_20150504T133750_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-04 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150504_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150504_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01360_D_20150504T133750_R11850_001.h5
+[OK]  2015-05-04: step2 terminó bien
+
+[RUN] 2015-05-05
+      L3  : SMAP_L3_SM_P_20150505_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150505_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01367_A_20150505T001751_R11850_002.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-05 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150505_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150505_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01367_A_20150505T001751_R11850_002.h5
+[OK]  2015-05-05: step2 terminó bien
+
+[RUN] 2015-05-06
+      L3  : SMAP_L3_SM_P_20150506_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150506_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01389_D_20150506T131314_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-06 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150506_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150506_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01389_D_20150506T131314_R11850_001.h5
+[OK]  2015-05-06: step2 terminó bien
+
+[RUN] 2015-05-07
+      L3  : SMAP_L3_SM_P_20150507_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150507_R13080_001.h5
+      L1C : (none)
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-07 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150507_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150507_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif
+[OK]  2015-05-07: step2 terminó bien
+
+[RUN] 2015-05-08
+      L3  : SMAP_L3_SM_P_20150508_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150508_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01418_D_20150508T124842_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-08 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150508_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150508_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01418_D_20150508T124842_R11850_001.h5
+[OK]  2015-05-08: step2 terminó bien
+
+[RUN] 2015-05-09
+      L3  : SMAP_L3_SM_P_20150509_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150509_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01433_D_20150509T132539_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-09 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150509_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150509_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01433_D_20150509T132539_R11850_001.h5
+[WARN] 2015-05-09: step2 falló con returncode=1 (sigue con el siguiente día)
+
+[RUN] 2015-05-10
+      L3  : SMAP_L3_SM_P_20150510_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150510_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01440_A_20150510T000535_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-10 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150510_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150510_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01440_A_20150510T000535_R11850_001.h5
+[OK]  2015-05-10: step2 terminó bien
+
+[RUN] 2015-05-11
+      L3  : SMAP_L3_SM_P_20150511_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150511_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01462_D_20150511T130102_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-11 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150511_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150511_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01462_D_20150511T130102_R11850_001.h5
+[OK]  2015-05-11: step2 terminó bien
+
+[RUN] 2015-05-12
+      L3  : SMAP_L3_SM_P_20150512_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150512_R13080_001.h5
+      L1C : (none)
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-12 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150512_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150512_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif
+[OK]  2015-05-12: step2 terminó bien
+[SKIP] 2015-05-13: falta L3 o radar en C:\Users\ortuo\tfgirati\tfg-nisar\data\raw
+
+[RUN] 2015-05-14
+      L3  : SMAP_L3_SM_P_20150514_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150514_R13080_001.h5
+      L1C : (none)
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-14 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150514_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150514_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif
+[OK]  2015-05-14: step2 terminó bien
+
+[RUN] 2015-05-15
+      L3  : SMAP_L3_SM_P_20150515_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150515_R13080_001.h5
+      L1C : (none)
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-15 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150515_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150515_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif
+[OK]  2015-05-15: step2 terminó bien
+
+[RUN] 2015-05-16
+      L3  : SMAP_L3_SM_P_20150516_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150516_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01535_D_20150516T124849_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-16 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150516_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150516_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01535_D_20150516T124849_R11850_001.h5
+[OK]  2015-05-16: step2 terminó bien
+
+[RUN] 2015-05-17
+      L3  : SMAP_L3_SM_P_20150517_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150517_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01550_D_20150517T132541_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-17 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150517_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150517_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01550_D_20150517T132541_R11850_001.h5
+[WARN] 2015-05-17: step2 falló con returncode=1 (sigue con el siguiente día)
+
+[RUN] 2015-05-18
+      L3  : SMAP_L3_SM_P_20150518_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150518_R13080_001.h5
+      L1C : (none)
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-18 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150518_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150518_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif
+[WARN] 2015-05-18: step2 falló con returncode=1 (sigue con el siguiente día)
+
+[RUN] 2015-05-19
+      L3  : SMAP_L3_SM_P_20150519_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150519_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01579_D_20150519T130104_R11850_002.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-19 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150519_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150519_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01579_D_20150519T130104_R11850_002.h5
+[OK]  2015-05-19: step2 terminó bien
+
+[RUN] 2015-05-20
+      L3  : SMAP_L3_SM_P_20150520_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150520_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01593_A_20150520T115533_R11850_002.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-20 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150520_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150520_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01593_A_20150520T115533_R11850_002.h5
+[OK]  2015-05-20: step2 terminó bien
+
+[RUN] 2015-05-21
+      L3  : SMAP_L3_SM_P_20150521_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150521_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01601_A_20150521T001801_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-21 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150521_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150521_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01601_A_20150521T001801_R11850_001.h5
+[OK]  2015-05-21: step2 terminó bien
+
+[RUN] 2015-05-22
+      L3  : SMAP_L3_SM_P_20150522_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150522_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01623_D_20150522T131324_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-22 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150522_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150522_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01623_D_20150522T131324_R11850_001.h5
+[OK]  2015-05-22: step2 terminó bien
+
+[RUN] 2015-05-23
+      L3  : SMAP_L3_SM_P_20150523_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150523_R13080_001.h5
+      L1C : (none)
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-23 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150523_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150523_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif
+[OK]  2015-05-23: step2 terminó bien
+
+[RUN] 2015-05-24
+      L3  : SMAP_L3_SM_P_20150524_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150524_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01652_D_20150524T124847_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-24 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150524_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150524_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01652_D_20150524T124847_R11850_001.h5
+[OK]  2015-05-24: step2 terminó bien
+
+[RUN] 2015-05-25
+      L3  : SMAP_L3_SM_P_20150525_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150525_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01667_D_20150525T132543_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-25 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150525_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150525_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01667_D_20150525T132543_R11850_001.h5
+[OK]  2015-05-25: step2 terminó bien
+
+[RUN] 2015-05-26
+      L3  : SMAP_L3_SM_P_20150526_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150526_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01674_A_20150526T000543_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-26 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150526_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150526_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01674_A_20150526T000543_R11850_001.h5
+[OK]  2015-05-26: step2 terminó bien
+
+[RUN] 2015-05-27
+      L3  : SMAP_L3_SM_P_20150527_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150527_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01696_D_20150527T130106_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-27 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150527_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150527_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01696_D_20150527T130106_R11850_001.h5
+[OK]  2015-05-27: step2 terminó bien
+
+[RUN] 2015-05-28
+      L3  : SMAP_L3_SM_P_20150528_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150528_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01711_D_20150528T133802_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-28 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150528_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150528_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01711_D_20150528T133802_R11850_001.h5
+[OK]  2015-05-28: step2 terminó bien
+
+[RUN] 2015-05-29
+      L3  : SMAP_L3_SM_P_20150529_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150529_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01718_A_20150529T001803_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-29 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150529_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150529_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01718_A_20150529T001803_R11850_001.h5
+[OK]  2015-05-29: step2 terminó bien
+
+[RUN] 2015-05-30
+      L3  : SMAP_L3_SM_P_20150530_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150530_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01740_D_20150530T131325_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-30 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150530_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150530_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01740_D_20150530T131325_R11850_001.h5
+[OK]  2015-05-30: step2 terminó bien
+
+[RUN] 2015-05-31
+      L3  : SMAP_L3_SM_P_20150531_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150531_R13080_001.h5
+      L1C : (none)
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-31 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150531_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150531_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif
+[OK]  2015-05-31: step2 terminó bien
+
+[RUN] 2015-06-01
+      L3  : SMAP_L3_SM_P_20150601_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150601_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01769_D_20150601T124848_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-01 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150601_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150601_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01769_D_20150601T124848_R11850_001.h5
+[OK]  2015-06-01: step2 terminó bien
+
+[RUN] 2015-06-02
+      L3  : SMAP_L3_SM_P_20150602_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150602_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01784_D_20150602T132540_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-02 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150602_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150602_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01784_D_20150602T132540_R11850_001.h5
+[OK]  2015-06-02: step2 terminó bien
+
+[RUN] 2015-06-03
+      L3  : SMAP_L3_SM_P_20150603_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150603_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01791_A_20150603T000540_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-03 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150603_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150603_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01791_A_20150603T000540_R11850_001.h5
+[OK]  2015-06-03: step2 terminó bien
+
+[RUN] 2015-06-04
+      L3  : SMAP_L3_SM_P_20150604_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150604_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01813_D_20150604T130103_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-04 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150604_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150604_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01813_D_20150604T130103_R11850_001.h5
+[OK]  2015-06-04: step2 terminó bien
+
+[RUN] 2015-06-05
+      L3  : SMAP_L3_SM_P_20150605_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150605_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01828_D_20150605T133759_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-05 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150605_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150605_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01828_D_20150605T133759_R11850_001.h5
+[OK]  2015-06-05: step2 terminó bien
+
+[RUN] 2015-06-06
+      L3  : SMAP_L3_SM_P_20150606_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150606_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01835_A_20150606T001759_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-06 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150606_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150606_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01835_A_20150606T001759_R11850_001.h5
+[OK]  2015-06-06: step2 terminó bien
+
+[RUN] 2015-06-07
+      L3  : SMAP_L3_SM_P_20150607_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150607_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01864_A_20150607T235322_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-07 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150607_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150607_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01864_A_20150607T235322_R11850_001.h5
+[OK]  2015-06-07: step2 terminó bien
+
+[RUN] 2015-06-08
+      L3  : SMAP_L3_SM_P_20150608_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150608_R13080_001.h5
+      L1C : (none)
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-08 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150608_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150608_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif
+[OK]  2015-06-08: step2 terminó bien
+
+[RUN] 2015-06-09
+      L3  : SMAP_L3_SM_P_20150609_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150609_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01886_D_20150609T124844_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-09 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150609_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150609_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01886_D_20150609T124844_R11850_001.h5
+[OK]  2015-06-09: step2 terminó bien
+
+[RUN] 2015-06-10
+      L3  : SMAP_L3_SM_P_20150610_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150610_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01901_D_20150610T132536_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-10 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150610_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150610_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01901_D_20150610T132536_R11850_001.h5
+[OK]  2015-06-10: step2 terminó bien
+
+[RUN] 2015-06-11
+      L3  : SMAP_L3_SM_P_20150611_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150611_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01908_A_20150611T000537_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-11 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150611_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150611_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01908_A_20150611T000537_R11850_001.h5
+[OK]  2015-06-11: step2 terminó bien
+
+[RUN] 2015-06-12
+      L3  : SMAP_L3_SM_P_20150612_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150612_R13080_001.h5
+      L1C : (none)
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-12 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150612_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150612_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif
+[OK]  2015-06-12: step2 terminó bien
+
+[RUN] 2015-06-13
+      L3  : SMAP_L3_SM_P_20150613_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150613_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01945_D_20150613T133755_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-13 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150613_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150613_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01945_D_20150613T133755_R11850_001.h5
+[OK]  2015-06-13: step2 terminó bien
+
+[RUN] 2015-06-14
+      L3  : SMAP_L3_SM_P_20150614_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150614_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01952_A_20150614T001756_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-14 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150614_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150614_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01952_A_20150614T001756_R11850_001.h5
+[OK]  2015-06-14: step2 terminó bien
+
+[RUN] 2015-06-15
+      L3  : SMAP_L3_SM_P_20150615_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150615_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01974_D_20150615T131314_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-15 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150615_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150615_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01974_D_20150615T131314_R11850_001.h5
+[OK]  2015-06-15: step2 terminó bien
+[SKIP] 2015-06-16: falta L3 o radar en C:\Users\ortuo\tfgirati\tfg-nisar\data\raw
+
+[RUN] 2015-06-17
+      L3  : SMAP_L3_SM_P_20150617_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150617_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02010_A_20150617T232836_R11850_002.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-17 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150617_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150617_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02010_A_20150617T232836_R11850_002.h5
+[OK]  2015-06-17: step2 terminó bien
+
+[RUN] 2015-06-18
+      L3  : SMAP_L3_SM_P_20150618_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150618_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02018_D_20150618T132532_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-18 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150618_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150618_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02018_D_20150618T132532_R11850_001.h5
+[OK]  2015-06-18: step2 terminó bien
+
+[RUN] 2015-06-19
+      L3  : SMAP_L3_SM_P_20150619_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150619_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02025_A_20150619T000528_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-19 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150619_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150619_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02025_A_20150619T000528_R11850_001.h5
+[OK]  2015-06-19: step2 terminó bien
+
+[RUN] 2015-06-20
+      L3  : SMAP_L3_SM_P_20150620_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150620_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02047_D_20150620T130050_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-20 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150620_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150620_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02047_D_20150620T130050_R11850_001.h5
+[OK]  2015-06-20: step2 terminó bien
+
+[RUN] 2015-06-21
+      L3  : SMAP_L3_SM_P_20150621_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150621_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02062_D_20150621T133746_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-21 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150621_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150621_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02062_D_20150621T133746_R11850_001.h5
+[OK]  2015-06-21: step2 terminó bien
+
+[RUN] 2015-06-22
+      L3  : SMAP_L3_SM_P_20150622_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150622_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02069_A_20150622T001743_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-22 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150622_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150622_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02069_A_20150622T001743_R11850_001.h5
+[OK]  2015-06-22: step2 terminó bien
+
+[RUN] 2015-06-23
+      L3  : SMAP_L3_SM_P_20150623_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150623_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02098_A_20150623T235305_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-23 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150623_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150623_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02098_A_20150623T235305_R11850_001.h5
+[OK]  2015-06-23: step2 terminó bien
+
+[RUN] 2015-06-24
+      L3  : SMAP_L3_SM_P_20150624_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150624_R13080_001.h5
+      L1C : (none)
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-24 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150624_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150624_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif
+[OK]  2015-06-24: step2 terminó bien
+
+[RUN] 2015-06-25
+      L3  : SMAP_L3_SM_P_20150625_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150625_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02127_A_20150625T232824_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-25 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150625_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150625_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02127_A_20150625T232824_R11850_001.h5
+[OK]  2015-06-25: step2 terminó bien
+
+[RUN] 2015-06-26
+      L3  : SMAP_L3_SM_P_20150626_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150626_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02135_D_20150626T132520_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-26 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150626_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150626_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02135_D_20150626T132520_R11850_001.h5
+[OK]  2015-06-26: step2 terminó bien
+
+[RUN] 2015-06-27
+      L3  : SMAP_L3_SM_P_20150627_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150627_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02142_A_20150627T000520_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-27 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150627_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150627_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02142_A_20150627T000520_R11850_001.h5
+[OK]  2015-06-27: step2 terminó bien
+
+[RUN] 2015-06-28
+      L3  : SMAP_L3_SM_P_20150628_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150628_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02164_D_20150628T130038_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-28 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150628_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150628_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02164_D_20150628T130038_R11850_001.h5
+[OK]  2015-06-28: step2 terminó bien
+
+[RUN] 2015-06-29
+      L3  : SMAP_L3_SM_P_20150629_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150629_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02179_D_20150629T133734_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-29 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150629_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150629_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02179_D_20150629T133734_R11850_001.h5
+[OK]  2015-06-29: step2 terminó bien
+
+[RUN] 2015-06-30
+      L3  : SMAP_L3_SM_P_20150630_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150630_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02186_A_20150630T001731_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-30 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150630_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150630_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02186_A_20150630T001731_R11850_001.h5
+[OK]  2015-06-30: step2 terminó bien
+
+[RUN] 2015-07-01
+      L3  : SMAP_L3_SM_P_20150701_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150701_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02208_D_20150701T131252_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-07-01 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150701_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150701_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02208_D_20150701T131252_R11850_001.h5
+[OK]  2015-07-01: step2 terminó bien
+
+[RUN] 2015-07-02
+      L3  : SMAP_L3_SM_P_20150702_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150702_R13080_001.h5
+      L1C : (none)
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-07-02 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150702_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150702_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif
+[OK]  2015-07-02: step2 terminó bien
+
+[RUN] 2015-07-03
+      L3  : SMAP_L3_SM_P_20150703_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150703_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02237_D_20150703T124810_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-07-03 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150703_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150703_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02237_D_20150703T124810_R11850_001.h5
+[OK]  2015-07-03: step2 terminó bien
+
+[RUN] 2015-07-04
+      L3  : SMAP_L3_SM_P_20150704_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150704_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02252_D_20150704T132507_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-07-04 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150704_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150704_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02252_D_20150704T132507_R11850_001.h5
+[OK]  2015-07-04: step2 terminó bien
+
+[DONE] Fin del rango.
+[LOG]  C:\Users\ortuo\tfgirati\tfg-nisar\data\interim\run_step2_range.log
+================================================================================
+[INFO] Ejecutando rango: 2015-05-01 -> 2015-07-04
+[INFO] RAW=C:\Users\ortuo\tfgirati\tfg-nisar\data\raw
+[INFO] TEMPLATE=C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif
+[INFO] STEP2=C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py
+================================================================================
+
+[RUN] 2015-05-01
+      L3  : SMAP_L3_SM_P_20150501_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150501_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01316_D_20150501T132526_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-01 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150501_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150501_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01316_D_20150501T132526_R11850_001.h5
+[OK]  2015-05-01: step2 terminó bien
+
+[RUN] 2015-05-02
+      L3  : SMAP_L3_SM_P_20150502_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150502_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01323_A_20150502T000526_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-02 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150502_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150502_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01323_A_20150502T000526_R11850_001.h5
+[OK]  2015-05-02: step2 terminó bien
+
+[RUN] 2015-05-03
+      L3  : SMAP_L3_SM_P_20150503_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150503_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01345_D_20150503T130049_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-03 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150503_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150503_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01345_D_20150503T130049_R11850_001.h5
+[OK]  2015-05-03: step2 terminó bien
+
+[RUN] 2015-05-04
+      L3  : SMAP_L3_SM_P_20150504_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150504_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01360_D_20150504T133750_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-04 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150504_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150504_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01360_D_20150504T133750_R11850_001.h5
+[OK]  2015-05-04: step2 terminó bien
+
+[RUN] 2015-05-05
+      L3  : SMAP_L3_SM_P_20150505_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150505_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01367_A_20150505T001751_R11850_002.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-05 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150505_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150505_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01367_A_20150505T001751_R11850_002.h5
+[OK]  2015-05-05: step2 terminó bien
+
+[RUN] 2015-05-06
+      L3  : SMAP_L3_SM_P_20150506_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150506_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01389_D_20150506T131314_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-06 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150506_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150506_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01389_D_20150506T131314_R11850_001.h5
+[OK]  2015-05-06: step2 terminó bien
+
+[RUN] 2015-05-07
+      L3  : SMAP_L3_SM_P_20150507_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150507_R13080_001.h5
+      L1C : (none)
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-07 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150507_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150507_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif
+[OK]  2015-05-07: step2 terminó bien
+
+[RUN] 2015-05-08
+      L3  : SMAP_L3_SM_P_20150508_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150508_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01418_D_20150508T124842_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-08 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150508_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150508_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01418_D_20150508T124842_R11850_001.h5
+[OK]  2015-05-08: step2 terminó bien
+
+[RUN] 2015-05-09
+      L3  : SMAP_L3_SM_P_20150509_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150509_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01433_D_20150509T132539_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-09 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150509_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150509_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01433_D_20150509T132539_R11850_001.h5
+[WARN] 2015-05-09: step2 falló con returncode=1 (sigue con el siguiente día)
+
+[RUN] 2015-05-10
+      L3  : SMAP_L3_SM_P_20150510_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150510_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01440_A_20150510T000535_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-10 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150510_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150510_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01440_A_20150510T000535_R11850_001.h5
+[OK]  2015-05-10: step2 terminó bien
+
+[RUN] 2015-05-11
+      L3  : SMAP_L3_SM_P_20150511_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150511_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01462_D_20150511T130102_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-11 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150511_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150511_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01462_D_20150511T130102_R11850_001.h5
+[OK]  2015-05-11: step2 terminó bien
+
+[RUN] 2015-05-12
+      L3  : SMAP_L3_SM_P_20150512_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150512_R13080_001.h5
+      L1C : (none)
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-12 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150512_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150512_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif
+[OK]  2015-05-12: step2 terminó bien
+[SKIP] 2015-05-13: falta L3 o radar en C:\Users\ortuo\tfgirati\tfg-nisar\data\raw
+
+[RUN] 2015-05-14
+      L3  : SMAP_L3_SM_P_20150514_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150514_R13080_001.h5
+      L1C : (none)
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-14 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150514_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150514_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif
+[OK]  2015-05-14: step2 terminó bien
+
+[RUN] 2015-05-15
+      L3  : SMAP_L3_SM_P_20150515_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150515_R13080_001.h5
+      L1C : (none)
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-15 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150515_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150515_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif
+[OK]  2015-05-15: step2 terminó bien
+
+[RUN] 2015-05-16
+      L3  : SMAP_L3_SM_P_20150516_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150516_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01535_D_20150516T124849_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-16 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150516_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150516_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01535_D_20150516T124849_R11850_001.h5
+[OK]  2015-05-16: step2 terminó bien
+
+[RUN] 2015-05-17
+      L3  : SMAP_L3_SM_P_20150517_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150517_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01550_D_20150517T132541_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-17 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150517_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150517_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01550_D_20150517T132541_R11850_001.h5
+[WARN] 2015-05-17: step2 falló con returncode=1 (sigue con el siguiente día)
+
+[RUN] 2015-05-18
+      L3  : SMAP_L3_SM_P_20150518_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150518_R13080_001.h5
+      L1C : (none)
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-18 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150518_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150518_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif
+[WARN] 2015-05-18: step2 falló con returncode=1 (sigue con el siguiente día)
+
+[RUN] 2015-05-19
+      L3  : SMAP_L3_SM_P_20150519_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150519_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01579_D_20150519T130104_R11850_002.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-19 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150519_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150519_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01579_D_20150519T130104_R11850_002.h5
+[OK]  2015-05-19: step2 terminó bien
+
+[RUN] 2015-05-20
+      L3  : SMAP_L3_SM_P_20150520_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150520_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01593_A_20150520T115533_R11850_002.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-20 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150520_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150520_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01593_A_20150520T115533_R11850_002.h5
+[OK]  2015-05-20: step2 terminó bien
+
+[RUN] 2015-05-21
+      L3  : SMAP_L3_SM_P_20150521_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150521_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01601_A_20150521T001801_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-21 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150521_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150521_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01601_A_20150521T001801_R11850_001.h5
+[OK]  2015-05-21: step2 terminó bien
+
+[RUN] 2015-05-22
+      L3  : SMAP_L3_SM_P_20150522_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150522_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01623_D_20150522T131324_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-22 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150522_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150522_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01623_D_20150522T131324_R11850_001.h5
+[OK]  2015-05-22: step2 terminó bien
+
+[RUN] 2015-05-23
+      L3  : SMAP_L3_SM_P_20150523_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150523_R13080_001.h5
+      L1C : (none)
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-23 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150523_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150523_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif
+[OK]  2015-05-23: step2 terminó bien
+
+[RUN] 2015-05-24
+      L3  : SMAP_L3_SM_P_20150524_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150524_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01652_D_20150524T124847_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-24 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150524_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150524_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01652_D_20150524T124847_R11850_001.h5
+[OK]  2015-05-24: step2 terminó bien
+
+[RUN] 2015-05-25
+      L3  : SMAP_L3_SM_P_20150525_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150525_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01667_D_20150525T132543_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-25 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150525_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150525_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01667_D_20150525T132543_R11850_001.h5
+[OK]  2015-05-25: step2 terminó bien
+
+[RUN] 2015-05-26
+      L3  : SMAP_L3_SM_P_20150526_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150526_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01674_A_20150526T000543_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-26 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150526_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150526_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01674_A_20150526T000543_R11850_001.h5
+[OK]  2015-05-26: step2 terminó bien
+
+[RUN] 2015-05-27
+      L3  : SMAP_L3_SM_P_20150527_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150527_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01696_D_20150527T130106_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-27 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150527_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150527_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01696_D_20150527T130106_R11850_001.h5
+[OK]  2015-05-27: step2 terminó bien
+
+[RUN] 2015-05-28
+      L3  : SMAP_L3_SM_P_20150528_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150528_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01711_D_20150528T133802_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-28 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150528_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150528_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01711_D_20150528T133802_R11850_001.h5
+[OK]  2015-05-28: step2 terminó bien
+
+[RUN] 2015-05-29
+      L3  : SMAP_L3_SM_P_20150529_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150529_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01718_A_20150529T001803_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-29 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150529_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150529_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01718_A_20150529T001803_R11850_001.h5
+[OK]  2015-05-29: step2 terminó bien
+
+[RUN] 2015-05-30
+      L3  : SMAP_L3_SM_P_20150530_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150530_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01740_D_20150530T131325_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-30 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150530_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150530_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01740_D_20150530T131325_R11850_001.h5
+[OK]  2015-05-30: step2 terminó bien
+
+[RUN] 2015-05-31
+      L3  : SMAP_L3_SM_P_20150531_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150531_R13080_001.h5
+      L1C : (none)
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-05-31 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150531_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150531_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif
+[OK]  2015-05-31: step2 terminó bien
+
+[RUN] 2015-06-01
+      L3  : SMAP_L3_SM_P_20150601_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150601_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01769_D_20150601T124848_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-01 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150601_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150601_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01769_D_20150601T124848_R11850_001.h5
+[OK]  2015-06-01: step2 terminó bien
+
+[RUN] 2015-06-02
+      L3  : SMAP_L3_SM_P_20150602_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150602_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01784_D_20150602T132540_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-02 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150602_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150602_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01784_D_20150602T132540_R11850_001.h5
+[OK]  2015-06-02: step2 terminó bien
+
+[RUN] 2015-06-03
+      L3  : SMAP_L3_SM_P_20150603_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150603_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01791_A_20150603T000540_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-03 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150603_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150603_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01791_A_20150603T000540_R11850_001.h5
+[OK]  2015-06-03: step2 terminó bien
+
+[RUN] 2015-06-04
+      L3  : SMAP_L3_SM_P_20150604_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150604_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01813_D_20150604T130103_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-04 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150604_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150604_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01813_D_20150604T130103_R11850_001.h5
+[OK]  2015-06-04: step2 terminó bien
+
+[RUN] 2015-06-05
+      L3  : SMAP_L3_SM_P_20150605_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150605_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01828_D_20150605T133759_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-05 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150605_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150605_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01828_D_20150605T133759_R11850_001.h5
+[OK]  2015-06-05: step2 terminó bien
+
+[RUN] 2015-06-06
+      L3  : SMAP_L3_SM_P_20150606_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150606_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01835_A_20150606T001759_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-06 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150606_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150606_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01835_A_20150606T001759_R11850_001.h5
+[OK]  2015-06-06: step2 terminó bien
+
+[RUN] 2015-06-07
+      L3  : SMAP_L3_SM_P_20150607_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150607_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01864_A_20150607T235322_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-07 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150607_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150607_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01864_A_20150607T235322_R11850_001.h5
+[OK]  2015-06-07: step2 terminó bien
+
+[RUN] 2015-06-08
+      L3  : SMAP_L3_SM_P_20150608_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150608_R13080_001.h5
+      L1C : (none)
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-08 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150608_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150608_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif
+[OK]  2015-06-08: step2 terminó bien
+
+[RUN] 2015-06-09
+      L3  : SMAP_L3_SM_P_20150609_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150609_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01886_D_20150609T124844_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-09 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150609_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150609_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01886_D_20150609T124844_R11850_001.h5
+[OK]  2015-06-09: step2 terminó bien
+
+[RUN] 2015-06-10
+      L3  : SMAP_L3_SM_P_20150610_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150610_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01901_D_20150610T132536_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-10 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150610_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150610_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01901_D_20150610T132536_R11850_001.h5
+[OK]  2015-06-10: step2 terminó bien
+
+[RUN] 2015-06-11
+      L3  : SMAP_L3_SM_P_20150611_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150611_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01908_A_20150611T000537_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-11 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150611_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150611_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01908_A_20150611T000537_R11850_001.h5
+[OK]  2015-06-11: step2 terminó bien
+
+[RUN] 2015-06-12
+      L3  : SMAP_L3_SM_P_20150612_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150612_R13080_001.h5
+      L1C : (none)
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-12 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150612_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150612_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif
+[OK]  2015-06-12: step2 terminó bien
+
+[RUN] 2015-06-13
+      L3  : SMAP_L3_SM_P_20150613_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150613_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01945_D_20150613T133755_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-13 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150613_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150613_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01945_D_20150613T133755_R11850_001.h5
+[OK]  2015-06-13: step2 terminó bien
+
+[RUN] 2015-06-14
+      L3  : SMAP_L3_SM_P_20150614_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150614_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01952_A_20150614T001756_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-14 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150614_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150614_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01952_A_20150614T001756_R11850_001.h5
+[OK]  2015-06-14: step2 terminó bien
+
+[RUN] 2015-06-15
+      L3  : SMAP_L3_SM_P_20150615_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150615_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_01974_D_20150615T131314_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-15 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150615_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150615_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_01974_D_20150615T131314_R11850_001.h5
+[OK]  2015-06-15: step2 terminó bien
+[SKIP] 2015-06-16: falta L3 o radar en C:\Users\ortuo\tfgirati\tfg-nisar\data\raw
+
+[RUN] 2015-06-17
+      L3  : SMAP_L3_SM_P_20150617_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150617_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02010_A_20150617T232836_R11850_002.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-17 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150617_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150617_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02010_A_20150617T232836_R11850_002.h5
+[OK]  2015-06-17: step2 terminó bien
+
+[RUN] 2015-06-18
+      L3  : SMAP_L3_SM_P_20150618_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150618_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02018_D_20150618T132532_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-18 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150618_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150618_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02018_D_20150618T132532_R11850_001.h5
+[OK]  2015-06-18: step2 terminó bien
+
+[RUN] 2015-06-19
+      L3  : SMAP_L3_SM_P_20150619_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150619_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02025_A_20150619T000528_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-19 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150619_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150619_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02025_A_20150619T000528_R11850_001.h5
+[OK]  2015-06-19: step2 terminó bien
+
+[RUN] 2015-06-20
+      L3  : SMAP_L3_SM_P_20150620_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150620_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02047_D_20150620T130050_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-20 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150620_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150620_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02047_D_20150620T130050_R11850_001.h5
+[OK]  2015-06-20: step2 terminó bien
+
+[RUN] 2015-06-21
+      L3  : SMAP_L3_SM_P_20150621_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150621_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02062_D_20150621T133746_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-21 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150621_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150621_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02062_D_20150621T133746_R11850_001.h5
+[OK]  2015-06-21: step2 terminó bien
+
+[RUN] 2015-06-22
+      L3  : SMAP_L3_SM_P_20150622_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150622_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02069_A_20150622T001743_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-22 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150622_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150622_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02069_A_20150622T001743_R11850_001.h5
+[OK]  2015-06-22: step2 terminó bien
+
+[RUN] 2015-06-23
+      L3  : SMAP_L3_SM_P_20150623_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150623_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02098_A_20150623T235305_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-23 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150623_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150623_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02098_A_20150623T235305_R11850_001.h5
+[OK]  2015-06-23: step2 terminó bien
+
+[RUN] 2015-06-24
+      L3  : SMAP_L3_SM_P_20150624_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150624_R13080_001.h5
+      L1C : (none)
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-24 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150624_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150624_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif
+[OK]  2015-06-24: step2 terminó bien
+
+[RUN] 2015-06-25
+      L3  : SMAP_L3_SM_P_20150625_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150625_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02127_A_20150625T232824_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-25 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150625_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150625_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02127_A_20150625T232824_R11850_001.h5
+[OK]  2015-06-25: step2 terminó bien
+
+[RUN] 2015-06-26
+      L3  : SMAP_L3_SM_P_20150626_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150626_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02135_D_20150626T132520_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-26 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150626_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150626_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02135_D_20150626T132520_R11850_001.h5
+[OK]  2015-06-26: step2 terminó bien
+
+[RUN] 2015-06-27
+      L3  : SMAP_L3_SM_P_20150627_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150627_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02142_A_20150627T000520_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-27 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150627_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150627_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02142_A_20150627T000520_R11850_001.h5
+[OK]  2015-06-27: step2 terminó bien
+
+[RUN] 2015-06-28
+      L3  : SMAP_L3_SM_P_20150628_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150628_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02164_D_20150628T130038_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-28 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150628_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150628_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02164_D_20150628T130038_R11850_001.h5
+[OK]  2015-06-28: step2 terminó bien
+
+[RUN] 2015-06-29
+      L3  : SMAP_L3_SM_P_20150629_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150629_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02179_D_20150629T133734_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-29 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150629_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150629_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02179_D_20150629T133734_R11850_001.h5
+[OK]  2015-06-29: step2 terminó bien
+
+[RUN] 2015-06-30
+      L3  : SMAP_L3_SM_P_20150630_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150630_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02186_A_20150630T001731_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-06-30 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150630_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150630_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02186_A_20150630T001731_R11850_001.h5
+[OK]  2015-06-30: step2 terminó bien
+
+[RUN] 2015-07-01
+      L3  : SMAP_L3_SM_P_20150701_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150701_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02208_D_20150701T131252_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-07-01 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150701_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150701_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02208_D_20150701T131252_R11850_001.h5
+[OK]  2015-07-01: step2 terminó bien
+
+[RUN] 2015-07-02
+      L3  : SMAP_L3_SM_P_20150702_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150702_R13080_001.h5
+      L1C : (none)
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-07-02 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150702_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150702_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif
+[OK]  2015-07-02: step2 terminó bien
+
+[RUN] 2015-07-03
+      L3  : SMAP_L3_SM_P_20150703_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150703_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02237_D_20150703T124810_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-07-03 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150703_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150703_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02237_D_20150703T124810_R11850_001.h5
+[OK]  2015-07-03: step2 terminó bien
+
+[RUN] 2015-07-04
+      L3  : SMAP_L3_SM_P_20150704_R19240_001.h5
+      RAD : SMAP_L3_SM_A_20150704_R13080_001.h5
+      L1C : SMAP_L1C_S0_HIRES_02252_D_20150704T132507_R11850_001.h5
+[CMD] C:\Users\ortuo\tfgirati\.venv\Scripts\python.exe C:\Users\ortuo\tfgirati\tfg-nisar\src\step2_smap_boulder.py --date 2015-07-04 --pol V --radar-pol VV --smap-l3-rad C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_P_20150704_R19240_001.h5 --smap-radar C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L3_SM_A_20150704_R13080_001.h5 --template C:\Users\ortuo\tfgirati\tfg-nisar\data\processed\SMAP_L3_template_36km_from_rad.tif --smap-l1c-xpol C:\Users\ortuo\tfgirati\tfg-nisar\data\raw\SMAP_L1C_S0_HIRES_02252_D_20150704T132507_R11850_001.h5
+[OK]  2015-07-04: step2 terminó bien
+
+[DONE] Fin del rango.
+[LOG]  C:\Users\ortuo\tfgirati\tfg-nisar\data\interim\run_step2_range.log
