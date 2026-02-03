@@ -1,12 +1,23 @@
 #!/usr/bin/env python3
-"""smap_tb36_to_grid.py
+"""
 
-Extract SMAP L3 36km brightness temperature (TB) for a given date and bbox.
-Reads TB_V or TB_H from the radiometer dataset and saves as NPZ.
+This script reads a SMAP L3 radiometer product (Passive/L3_SM_P), extracts
+brightness temperature (TB) for the requested polarization (V or H) from
+an AM group, applies missing-value handling, crops to a study-area bbox
+(transformed to EASE2 meters), and saves a small NPZ containing the
+cropped TB array along with compact georeference metadata.
 
-Usage:
-  python smap_tb36_to_grid.py --data-dir data/raw --date 20150607 \
-      --out-dir data/interim --pol V
+Design notes & assumptions:
+- The script expects TB datasets to be present under
+  Soil_Moisture_Retrieval_Data_AM/tb_<pol>_corrected.
+- Missing/fill values in the dataset are replaced with ``np.nan``.
+- For consistency with other scripts in the pipeline, the cropping uses a
+  fixed ‘target’ origin and a small fixed tile size (3 rows × 5 cols).
+  These indices are computed in EASE2 coordinates and clipped to the
+  L3 grid extent to avoid indexing errors.
+
+Output NPZ contains: TB_36km (float32), pol, crs_wkt, transform (6 elems),
+height, width, source_h5, tb_path.
 """
 
 from __future__ import annotations
@@ -22,17 +33,23 @@ from rasterio.crs import CRS
 from rasterio.warp import transform_bounds
 from rasterio.transform import from_origin
 
-# EASE2 36km grid parameters
+
+# EASE2 36km grid parameters (canonical global origin used in SMAP L3 products)
 EASE2_36KM_DX = 36000.0
 EASE2_36KM_X0 = -17367530.45
 EASE2_36KM_Y0 = 7314540.83
 
 DST_CRS = CRS.from_epsg(6933)  # EASE2
-SRC_CRS = CRS.from_epsg(4326)  # WGS84
+SRC_CRS = CRS.from_epsg(4326)  # WGS84 (lon/lat)
 
 
 def find_smap_l3_file(data_dir: Path, date: str) -> Path:
-    """Find SMAP L3 radiometer (L3_SM_P) HDF5 file for given date (YYYYMMDD)."""
+    """Return a matching SMAP L3 radiometer HDF5 file for YYYYMMDD.
+
+    Strategy: look for files matching the pattern `SMAP_L3_SM_P*<date>*.h5`.
+    If none are found a FileNotFoundError is raised. If multiple files are
+    found the first is used (a warning is printed).
+    """
     pattern = f"SMAP_L3_SM_P*{date}*.h5"
     files = list(data_dir.glob(pattern))
     if not files:
@@ -52,44 +69,45 @@ def main():
     parser.add_argument("--lon-max", type=float, default=-103.7115088)
     parser.add_argument("--lat-min", type=float, default=39.8008444)
     parser.add_argument("--lat-max", type=float, default=40.6991556)
-    
+
     args = parser.parse_args()
     args.out_dir.mkdir(parents=True, exist_ok=True)
-    
+
     print(f"=== Extract SMAP L3 TB 36km ===")
     print(f"Date: {args.date}")
     print(f"Polarization: {args.pol}")
     print(f"Bbox: lon [{args.lon_min}, {args.lon_max}], lat [{args.lat_min}, {args.lat_max}]")
-    
-    # Find L3 file
+
+    # Locate the L3 file for the given date
     h5_path = find_smap_l3_file(args.data_dir, args.date)
     print(f"\n[1/3] Reading {h5_path.name}")
-    
+
     with h5py.File(h5_path, "r") as h5:
-        # TB datasets: tb_v_corrected or tb_h_corrected (AM pass)
+        # In many SPL3TB products TB for AM pass is stored under this path
         pol_lower = args.pol.lower()
         tb_path = f"Soil_Moisture_Retrieval_Data_AM/tb_{pol_lower}_corrected"
-        
+
         if tb_path not in h5:
+            # Fail fast: the pipeline expects the corrected AM TB variable
             raise KeyError(f"Dataset not found: {tb_path}")
-        
+
         tb = h5[tb_path][:]
-        
-        # Apply fill value
+
+        # Apply common HDF5 _FillValue attr if present (replace with NaN)
         if hasattr(h5[tb_path], "attrs") and "_FillValue" in h5[tb_path].attrs:
             fill = h5[tb_path].attrs["_FillValue"]
             tb = np.where(tb == fill, np.nan, tb)
-        
+
         print(f"  TB path: {tb_path}")
         print(f"  TB shape: {tb.shape}, finite: {np.isfinite(tb).sum()}")
-    
-    # L3 TB is on EASE2 36km grid (typically 406 x 964)
+
+    # TB is stored on the EASE2 36km regular grid (typical shape ~ 406 x 964)
     h_full, w_full = tb.shape
-    
-    # Create full grid transform
+
+    # Full-grid transform for the EASE2 global grid
     tf_full = from_origin(EASE2_36KM_X0, EASE2_36KM_Y0, EASE2_36KM_DX, EASE2_36KM_DX)
-    
-    # Compute bbox in EASE2 coords
+
+    # Compute bbox in EASE2 meters so we can determine indices
     print(f"\n[2/3] Cropping to bbox")
     bbox_ease2 = transform_bounds(
         SRC_CRS, DST_CRS,
@@ -97,49 +115,49 @@ def main():
         densify_pts=21
     )
     left_bbox, bottom_bbox, right_bbox, top_bbox = bbox_ease2
-    
     print(f"  Bbox EASE2: left={left_bbox:.1f}, bottom={bottom_bbox:.1f}, right={right_bbox:.1f}, top={top_bbox:.1f}")
-    
-    # Compute pixel indices for bbox crop using consistent rounding
-    # Match the grid used by copol/xpol scripts (origin at -10152000, 4788000)
-    # Target grid: 3 rows × 5 cols starting at (-10152000, 4788000)
+
+    # The pipeline expects a small fixed tile aligned to a pre-defined
+    # 'target' origin (used by copol/xpol processing). We compute the
+    # tile indices from that origin to guarantee consistency across scripts.
     target_x0 = -10152000.0
     target_y0 = 4788000.0
-    
-    # Calculate which pixels in the full L3 grid correspond to this target
+
+    # Compute pixel index of the target origin within the L3 global grid
     col_min = int(np.round((target_x0 - EASE2_36KM_X0) / EASE2_36KM_DX))
     row_min = int(np.round((EASE2_36KM_Y0 - target_y0) / EASE2_36KM_DX))
-    
-    # Fixed size: 3 rows × 5 cols to match copol/xpol
+
+    # Use a fixed tile size for comparability with copol/xpol outputs
     n_rows = 3
     n_cols = 5
-    
+
     col_max = col_min + n_cols
     row_max = row_min + n_rows
-    
-    # Bounds check
+
+    # Clip to the full grid to avoid out-of-bounds indices
     col_min = max(0, col_min)
     col_max = min(w_full, col_max)
     row_min = max(0, row_min)
     row_max = min(h_full, row_max)
-    
+
     print(f"  Target grid origin: x={target_x0:.1f}, y={target_y0:.1f}")
     print(f"  Pixel indices: row [{row_min}:{row_max}], col [{col_min}:{col_max}]")
     print(f"  Expected shape: ({n_rows}, {n_cols})")
-    
+
     if col_max <= col_min or row_max <= row_min:
         raise ValueError("Bbox outside L3 grid extent")
-    
-    # Crop array
+
+    # Crop the array to the small tile
     tb_crop = tb[row_min:row_max, col_min:col_max]
-    
-    # Use the same transform as copol/xpol for consistency
+
+    # Use the same transform as the target grid origin so downstream scripts
+    # share a consistent georeference (origin and pixel size identical)
     tf_crop = from_origin(target_x0, target_y0, EASE2_36KM_DX, EASE2_36KM_DX)
-    
-    # Save NPZ
+
+    # Save NPZ with compact metadata (shape, transform vector, CRS)
     print(f"\n[3/3] Saving NPZ")
     out_path = args.out_dir / f"smap-tb36-{args.date}-{args.pol.lower()}.npz"
-    
+
     np.savez_compressed(
         out_path,
         TB_36km=tb_crop.astype(np.float32),
@@ -151,7 +169,7 @@ def main():
         source_h5=str(h5_path),
         tb_path=tb_path,
     )
-    
+
     print(f"  [OK] {out_path.name}")
     print(f"  Shape: {tb_crop.shape}")
     print(f"  Finite pixels: {np.isfinite(tb_crop).sum()}")

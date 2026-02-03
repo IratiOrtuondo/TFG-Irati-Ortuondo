@@ -1,20 +1,23 @@
 #!/usr/bin/env python3
-"""smap_xpol_to_grid.py
+"""
 
 Read SMAP L1C HiRes cross-polarization (xpol) arrays from HDF5 and bin them
-to a destination grid (an EASE2 or bbox grid). Writes per-day compressed NPZ
-files with the gridded xpol in dB and a sample-count map.
+to a destination grid (an EASE2 global or bbox-defined grid). Writes per-day
+compressed NPZ files with the gridded xpol in dB and a sample-count map.
 
-This is a refactor of the previous `crosspol.py` rewritten in English and
-formatted following Google Python style guidelines.
+This file is already in English but this commented version adds clearer
+module-level documentation, expanded function docstrings, and short inline
+comments explaining the rationale for heuristics (e.g., fill-value cleaning,
+linear vs dB detection, and efficient per-pixel aggregation using sorting
+and reduceat).
 
-Usage:
+Outputs:
+- data/interim/aligned-smap-xpol-<YYYYMMDD>.npz containing:
+    S_xpol_dB, n_samples, crs_wkt, transform (6 elems), height, width, meta
+
+Usage (example):
   python smap_xpol_to_grid.py --data-dir data/raw --start 20150501 --end 20150704 \
       --out-dir data/interim
-
-The script will look for SMAP L1C HDF5 files in `--data-dir` matching the
-date and extract one of the available xpol datasets (AFT preferred). The
-resulting NPZ files are created as `aligned-smap-xpol-<YYYYMMDD>.npz`.
 """
 
 from __future__ import annotations
@@ -54,18 +57,22 @@ def make_template_from_bbox_lonlat(
     pixel_size_m: float = 36000.0,
     dst_crs: CRS = DST_CRS,
 ) -> Tuple[Affine, int, int, CRS, dict]:
-    """Create an aligned destination grid from a lon/lat bbox.
+    """Create a destination grid Affine and shape from lon/lat bbox.
 
-    The bbox is transformed to the destination CRS and snapped to whole
-    pixel steps of ``pixel_size_m``. The returned transform follows
-    rasterio's Affine convention and the height/width are integers.
+    The bbox is first transformed to the destination CRS. To ensure the
+    template aligns to whole pixels, the transformed bbox edges are snapped
+    to multiples of ``pixel_size_m`` (left/bottom floors, right/top ceils).
 
     Returns:
-        transform: Affine transform for the destination grid.
-        height: Number of rows.
-        width: Number of columns.
-        dst_crs: Destination CRS object.
-        meta: Small metadata dict with bbox info.
+        transform: Affine transform (rasterio convention) for top-left origin
+        height: Number of rows (pixels)
+        width: Number of columns (pixels)
+        dst_crs: The destination CRS (same as input)
+        meta: Small metadata dict describing bbox and pixel size
+
+    Note: we return height/width as int and make sure pixel coverage is
+    conservative (ceil the extent) so that the user-requested bbox is fully
+    covered by the template grid.
     """
 
     left, bottom, right, top = transform_bounds(
@@ -73,6 +80,7 @@ def make_template_from_bbox_lonlat(
     )
 
     def snap(value: float, step: float, mode: str) -> float:
+        # floor/ceil snapping to whole multiples of step
         return math.floor(value / step) * step if mode == "floor" else math.ceil(value / step) * step
 
     left_s = snap(left, pixel_size_m, "floor")
@@ -95,9 +103,10 @@ def make_template_from_bbox_lonlat(
 
 
 def read_dataset(h5: h5py.File, path: str) -> np.ndarray:
-    """Read a dataset from ``h5`` and return it as a NumPy array.
+    """Read a dataset from ``h5`` and return it as a floating NumPy array.
 
-    Raises a KeyError when the dataset is missing.
+    Raises KeyError if the dataset is missing. We return dtype float64 to
+    preserve precision while performing percentile-based heuristics.
     """
 
     if path not in h5:
@@ -106,10 +115,13 @@ def read_dataset(h5: h5py.File, path: str) -> np.ndarray:
 
 
 def apply_fill_values(h5: h5py.File, path: str, arr: np.ndarray) -> np.ndarray:
-    """Apply fill values and common sentinel values to an array.
+    """Replace common fill/sentinel values with ``np.nan``.
 
-    This replaces common SMAP fill values (e.g. _FillValue, 0, -9999) with
-    ``np.nan``.
+    - Looks for an HDF5 ``_FillValue`` attribute and applies it when present.
+    - Also removes common sentinel values like 0, -9999, -999, -32768, 65535.
+
+    This helps to avoid treating invalid fills as valid samples during
+    aggregation or percentile checks.
     """
 
     ds = h5[path]
@@ -119,6 +131,7 @@ def apply_fill_values(h5: h5py.File, path: str, arr: np.ndarray) -> np.ndarray:
             fv_val = float(np.array(fv).ravel()[0])
             arr[arr == fv_val] = np.nan
         except Exception:
+            # If attr has unexpected shape/type we ignore it and continue
             pass
 
     for sentinel in [0, -9999, -999, -32768, 65535]:
@@ -128,14 +141,15 @@ def apply_fill_values(h5: h5py.File, path: str, arr: np.ndarray) -> np.ndarray:
 
 
 def sigma_to_db(arr: np.ndarray) -> np.ndarray:
-    """Convert sigma0 linear values to decibels when appropriate.
+    """Convert sigma0 linear values to dB when appropriate.
 
-    The heuristic checks percentiles of the finite values. Typical linear
-    sigma0 values are in the range (1e-6 .. 1) while dB values are often
-    negative or small positive numbers (e.g. -50 .. +20). If the 5th
-    percentile is >= 0 and the 95th percentile <= 2.0 we assume the
-    array is linear and convert with 10*log10; otherwise we assume it's
-    already in dB.
+    Heuristic: compute the 5th and 95th percentiles of finite values. If
+    the 5th percentile is >= 0 and the 95th percentile <= 2.0 we assume
+    the distribution is linear (small positive values typical of linear)
+    and compute 10*log10; otherwise we assume values are already in dB.
+
+    This avoids double-converting arrays already in dB or converting arrays
+    with invalid (e.g., negative) linear values.
     """
 
     a = np.asarray(arr, dtype=np.float64)
@@ -148,6 +162,7 @@ def sigma_to_db(arr: np.ndarray) -> np.ndarray:
 
     likely_linear = (q05 >= 0.0) and (q95 <= 2.0)
     if likely_linear:
+        # Convert only positive values to avoid log10(<=0)
         a = np.where(a > 0, 10.0 * np.log10(a), np.nan)
         return a.astype(np.float32)
 
@@ -163,11 +178,17 @@ def swath_to_grid_mean(
     width: int,
     dst_crs: CRS = DST_CRS,
 ) -> Tuple[np.ndarray, np.ndarray]:
-    """Bin swath points to a regular grid computing the mean per pixel.
+    """Bin swath points into destination grid pixels computing per-pixel mean.
 
-    Returns a tuple (mean_grid, counts_grid). If no valid points fall into
-    the destination grid, mean_grid is filled with ``np.nan`` and counts
-    grid is zeros.
+    Approach:
+    - Flatten input arrays and keep only finite lon/lat/value triplets.
+    - Transform lon/lat to destination CRS (EASE2 by default).
+    - Map coordinates to integer pixel indices using the supplied Affine.
+    - Aggregate by linearizing 2D indices to 1D and using sorting +
+      np.add.reduceat to compute sums / counts efficiently.
+
+    Returns:
+        (mean_grid, counts_grid): mean_grid uses np.nan for pixels with no data.
     """
 
     lonf = lon.reshape(-1)
@@ -183,6 +204,7 @@ def swath_to_grid_mean(
     ys = np.asarray(ys, dtype=np.float64)
     vf = vf[m].astype(np.float64)
 
+    # Use Affine parameters directly for speed (avoid creating inverse Affine)
     a = transform.a
     e = transform.e
     c = transform.c
@@ -199,6 +221,7 @@ def swath_to_grid_mean(
     cols = cols[ok]
     vf = vf[ok]
 
+    # Convert 2D indices to 1D index for fast grouping
     idx = rows * width + cols
     order = np.argsort(idx)
     idx_s = idx[order]
@@ -220,9 +243,9 @@ def swath_to_grid_mean(
 
 
 def pick_xpol_path(h5: h5py.File) -> str:
-    """Select which xpol dataset to use from the HDF5 file.
+    """Return the preferred xpol dataset path inside the HDF5 file.
 
-    Preference is given to the AFT dataset matching earlier behavior.
+    Preference order: AFT then FORE. Raises KeyError if neither exist.
     """
 
     if XPOL_AFT in h5:
@@ -233,10 +256,11 @@ def pick_xpol_path(h5: h5py.File) -> str:
 
 
 def find_file_for_date(data_dir: Path, ymd: str) -> Path | None:
-    """Find a matching HDF5 file in ``data_dir`` for the given date string.
+    """Find an HDF5 input file in ``data_dir`` matching a YYYYMMDD string.
 
-    The function first looks for files containing an explicit timestamp
-    pattern '*_<ymd>T*.h5', else falls back to any file containing ``ymd``.
+    Strategy: first look for files with an explicit timestamp pattern
+    '*_<ymd>T*.h5' (preferred), otherwise fallback to any file that contains
+    the date substring. Returns None when no file matches.
     """
 
     hits = sorted(data_dir.glob(f"*_{ymd}T*.h5"))
@@ -247,6 +271,16 @@ def find_file_for_date(data_dir: Path, ymd: str) -> Path | None:
 
 
 def main() -> None:
+    """CLI entry point: iterates dates and creates per-day NPZ files.
+
+    For each date the script:
+    - finds the matching L1C HDF5 file (if present),
+    - reads lat/lon and xpol arrays, applies fill-value cleaning,
+    - saves a cropped native NPZ (if samples fall inside the bbox) and
+    - computes a gridded average and sample-count per pixel, saving the
+      result as `aligned-smap-xpol-<YYYYMMDD>.npz`.
+    """
+
     parser = argparse.ArgumentParser(description="Bin SMAP L1C xpol to a grid and save per-day NPZ files.")
     parser.add_argument("--data-dir", required=True, help="Directory containing SMAP L1C HDF5 (.h5) files")
     parser.add_argument("--start", required=True, help="Start date YYYYMMDD")
@@ -295,6 +329,7 @@ def main() -> None:
                 xpol_path = pick_xpol_path(h5)
                 xpol = read_dataset(h5, xpol_path)
 
+                # Apply fill value handling to avoid treating invalid samples as real
                 lat = apply_fill_values(h5, LAT_PATH, lat)
                 lon = apply_fill_values(h5, LON_PATH, lon)
                 xpol = apply_fill_values(h5, xpol_path, xpol)
@@ -302,10 +337,11 @@ def main() -> None:
             if lat.shape != lon.shape or xpol.shape != lat.shape:
                 raise RuntimeError(f"Shape mismatch: lat{lat.shape} lon{lon.shape} xpol{xpol.shape}")
 
+            # Convert to dB when needed and keep as float32 for storage
             xpol_db = sigma_to_db(xpol)
 
-                # --- Save native-resolution NPZ for this date (leave original 36km NPZ behavior) ---
-                # Save a cropped native NPZ restricted to the user's lon/lat bbox when possible.
+            # --- Save native-resolution NPZ for this date (leave original 36km NPZ behavior) ---
+            # Save a cropped native NPZ restricted to the user's lon/lat bbox when possible.
             try:
                 nat_out_path = out_dir / f"aligned-smap-xpol-{ymd}-native.npz"
 
@@ -365,6 +401,7 @@ def main() -> None:
                                 native_save["height_native"] = np.int32(s_xpol.shape[0])
                                 native_save["width_native"] = np.int32(s_xpol.shape[1])
                         except Exception:
+                            # If computing an inferred transform fails, we silently continue
                             pass
 
                         native_save["crop_index"] = np.array([r0, r1, c0, c1], dtype=np.int32)
@@ -388,6 +425,7 @@ def main() -> None:
             except Exception as _e:
                 print("  [WARN] could not save native NPZ:", _e)
 
+            # Compute grid mean and counts
             S_xpol_dB, n_samples = swath_to_grid_mean(
                 lon=lon, lat=lat, val_db=xpol_db, transform=transform, height=height, width=width, dst_crs=dst_crs
             )

@@ -2,12 +2,23 @@
 # -*- coding: utf-8 -*-
 """Collocate SMAP L3 soil moisture to the analysis grid.
 
-This script extracts SMAP L3 soil moisture (coarse resolution, ~36 km),
-crops it to the study area, and collocates it onto a fixed analysis grid
-using nearest-neighbor resampling. The intrinsic spatial resolution of
-the SMAP product is preserved.
+This module extracts SMAP L3 soil moisture (coarse resolution, ~36 km),
+crops it to a user-defined study area, and collocates it onto a fixed
+analysis grid using nearest-neighbour resampling.
 
-The output is intended for validation and comparison purposes.
+Purpose and assumptions:
+- The script uses the Passive-only product when available and falls back
+  to Active–Passive when necessary.
+- Missing/fill values are represented by -9999 in the product and are
+  replaced with ``np.nan`` before processing.
+- Nearest-neighbour resampling is used to preserve the intrinsic coarse
+  resolution; no upscaling or interpolation is performed to add detail.
+
+Outputs are simple NPZ files intended for validation and comparison.
+
+Notes for maintainers:
+- The code is intentionally simple and deterministic; it is suitable for
+  unit testing and integration into larger pipelines.
 """
 
 from __future__ import annotations
@@ -28,6 +39,7 @@ from rasterio.warp import Resampling, reproject
 
 DATES = ["20150607", "20150610", "20150615", "20150618", "20150620"]
 
+# Local raw/processed directories (project-specific)
 RAW_DIR = Path(r"c:\Users\ortuo\tfgirati\tfg-nisar\data\raw")
 OUTPUT_DIR = Path(r"c:\Users\ortuo\tfgirati\tfg-nisar\data\processed")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -45,18 +57,25 @@ CRS_WGS84 = CRS.from_epsg(4326)
 # Grid utilities
 # -----------------------------------------------------------------------------
 
+
 def create_analysis_grid(
     n_lat: int = 30,
     n_lon: int = 39,
 ) -> Tuple[np.ndarray, np.ndarray]:
-    """Creates the fixed analysis grid covering the study area.
+    """Create a fixed analysis grid covering the study area.
+
+    The returned arrays follow the common raster convention: `lat_grid` and
+    `lon_grid` are 2D arrays with shape (n_lat, n_lon). `lat` is created using
+    `np.linspace(LAT_MAX, LAT_MIN, n_lat)` so that the first row corresponds
+    to the northern edge of the study area.
 
     Args:
         n_lat: Number of latitude pixels.
         n_lon: Number of longitude pixels.
 
     Returns:
-        Tuple of (lat_grid, lon_grid), both 2D arrays.
+        Tuple (lat_grid, lon_grid) both 2D float arrays suitable for plotting
+        and reprojecting results.
     """
     lat = np.linspace(LAT_MAX, LAT_MIN, n_lat)
     lon = np.linspace(LON_MIN, LON_MAX, n_lon)
@@ -68,19 +87,27 @@ def create_analysis_grid(
 # SMAP L3 extraction
 # -----------------------------------------------------------------------------
 
+
 def load_smap_l3_soil_moisture(
     date: str,
 ) -> Tuple[np.ndarray, np.ndarray, np.ndarray] | Tuple[None, None, None]:
-    """Loads and crops SMAP L3 soil moisture for a given date.
+    """Load and crop SMAP L3 soil moisture for a given YYYYMMDD date.
 
-    Prefers the Passive-only (P) product; falls back to Active–Passive (A).
+    Behavior / heuristics:
+    - Checks for a Passive-only file first (filename pattern used in this
+      project); if absent, it tries an Active–Passive filename.
+    - Within the HDF5 file, looks for AM or PM retrieval groups and uses
+      the first found. If neither group exists the function returns None.
+    - Replaces the commonly used fill value -9999.0 with ``np.nan``.
+    - Crops the arrays to the configured study-area bounding box and returns
+      the cropped sm, lat, lon arrays.
 
     Args:
-        date: Acquisition date (YYYYMMDD).
+        date: Date string YYYYMMDD.
 
     Returns:
-        Cropped soil moisture, latitude, and longitude arrays,
-        or (None, None, None) if data are unavailable.
+        (sm_cropped, lat_cropped, lon_cropped) or (None, None, None) when
+        data are missing or no samples fall in the study area.
     """
     file_p = RAW_DIR / f"SMAP_L3_SM_P_{date}_R19240_001.h5"
     file_a = RAW_DIR / f"SMAP_L3_SM_A_{date}_R13080_001.h5"
@@ -94,6 +121,7 @@ def load_smap_l3_soil_moisture(
         return None, None, None
 
     with h5py.File(smap_file, "r") as f:
+        # Prefer AM group if present; otherwise try PM
         if "Soil_Moisture_Retrieval_Data_AM" in f:
             group = f["Soil_Moisture_Retrieval_Data_AM"]
         elif "Soil_Moisture_Retrieval_Data_PM" in f:
@@ -102,12 +130,15 @@ def load_smap_l3_soil_moisture(
             print(f"[WARN] No soil moisture group in {smap_file.name}")
             return None, None, None
 
+        # Standard dataset names in SMAP L3 groups
         sm = group["soil_moisture"][:]
         lat = group["latitude"][:]
         lon = group["longitude"][:]
 
+    # Replace SMAP fill values with NaN before any computations
     sm = np.where(sm == -9999.0, np.nan, sm)
 
+    # Boolean mask of points inside the study area (inclusive bounds)
     mask = (
         (lat >= LAT_MIN) & (lat <= LAT_MAX) &
         (lon >= LON_MIN) & (lon <= LON_MAX)
@@ -121,6 +152,7 @@ def load_smap_l3_soil_moisture(
     r0, r1 = rows.min(), rows.max() + 1
     c0, c1 = cols.min(), cols.max() + 1
 
+    # Return contiguous crop (r0:r1, c0:c1) to preserve original array shape
     return (
         sm[r0:r1, c0:c1],
         lat[r0:r1, c0:c1],
@@ -132,6 +164,7 @@ def load_smap_l3_soil_moisture(
 # Collocation
 # -----------------------------------------------------------------------------
 
+
 def collocate_to_analysis_grid(
     sm_coarse: np.ndarray,
     lat_coarse: np.ndarray,
@@ -139,19 +172,24 @@ def collocate_to_analysis_grid(
     lat_grid: np.ndarray,
     lon_grid: np.ndarray,
 ) -> np.ndarray:
-    """Collocates coarse SMAP soil moisture onto the analysis grid.
+    """Collocate coarse SMAP soil moisture onto the analysis grid.
 
-    Nearest-neighbor resampling is used. No resolution enhancement is performed.
+    Uses nearest-neighbour resampling (rasterio.reproject with Resampling.nearest)
+    which preserves the coarse product's cell values rather than interpolating.
+
+    The function builds simple bounds-based transforms for the source and
+    destination grids using `from_bounds` and relies on CRS=EPSG:4326.
 
     Args:
-        sm_coarse: Coarse-resolution SMAP soil moisture.
-        lat_coarse: Latitude array (coarse).
-        lon_coarse: Longitude array (coarse).
-        lat_grid: Target latitude grid.
-        lon_grid: Target longitude grid.
+        sm_coarse: Coarse-resolution SMAP soil moisture array.
+        lat_coarse: Latitude array corresponding to sm_coarse.
+        lon_coarse: Longitude array corresponding to sm_coarse.
+        lat_grid: Target latitude grid (2D).
+        lon_grid: Target longitude grid (2D).
 
     Returns:
-        Soil moisture collocated to the analysis grid.
+        The collocated soil moisture on the analysis grid as float32 with
+        np.nan where no data are present.
     """
     src_transform = from_bounds(
         lon_coarse.min(),
@@ -192,7 +230,9 @@ def collocate_to_analysis_grid(
 # Main
 # -----------------------------------------------------------------------------
 
+
 def main() -> None:
+    """Top-level entry point: run collocation for configured dates and save NPZs."""
     print("=" * 70)
     print("SMAP L3 COARSE SOIL MOISTURE COLLOCATION")
     print("=" * 70)

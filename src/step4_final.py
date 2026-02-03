@@ -1,42 +1,34 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-step6_sm_from_tb_tauomega_atbd.py
+"""ATBD-consistent tau–omega inversion to retrieve soil moisture from TB.
 
-Step 6 (ATBD-consistent): Retrieve soil moisture at fine/native grid by inverting the SMAP
-tau–omega radiative transfer model (ATBD Eq. 1) from disaggregated TB.
+This script inverts the SMAP tau–omega radiative transfer model (ATBD Eq.1)
+at native grid scale to retrieve soil moisture (SM) from brightness
+temperature (TB). It follows these high-level steps per pixel:
 
-ATBD tau–omega (Eq. 1):
-  TB_p = Ts * e_p * gamma + Tc * (1 - omega_p) * (1 - gamma) * (1 + r_p * gamma)
-  gamma = exp(-tau_p * sec(theta))
-  e_p = 1 - r_p  (rough-surface emissivity/reflectivity at look angle)
+1. Read TB (driver) from an input NPZ (auto-detects the TB key).
+2. Prepare auxiliary inputs: Ts/Tc (surface/canopy temperature), tau,
+   omega (single-scattering albedo), theta (incidence), and h (roughness).
+   Each input can be supplied as a per-pixel NPZ or as a scalar fallback.
+3. Invert the analytic ATBD equation for rough-surface reflectivity r_rough
+   and compute gamma = exp(-tau * sec(theta)).
+4. Undo roughness to get smooth reflectivity r_smooth (empirical roughness
+   parameterization using h and exponent x ~ 2).
+5. Solve the Fresnel equation for dielectric permittivity (ε) by bisection
+   inversion of r_smooth(ε, θ) for the requested polarization (H/V).
+6. Convert ε -> SM using a dielectric-to-SM mapping (Topp polynomial by default).
+7. Apply regularization: clamp emissivity and SM to physically plausible ranges
+   and avoid NaN / division blow-ups by stabilizing denominators.
 
-Roughness parameterization (ATBD, simplified from the general Q-mixing form):
-  r_rough ≈ r_smooth * exp(-h * cos(theta)^x) , with x=2 in SMAP operational processing
+Outputs: compressed NPZ containing soil_moisture, intermediate fields,
+metadata (crs/transform/shape/date) and a small invalid mask for diagnostics.
 
-Inversion steps:
-  1) Solve ATBD Eq.1 for r_rough (analytic)
-  2) Undo roughness to get r_smooth
-  3) Invert Fresnel (smooth) -> epsilon (real) via bisection
-  4) epsilon -> SM using Topp polynomial (approx).
-
-Regularization (to avoid SM=0 saturation and NaNs):
-  - Clamp emissivity (e) to [e_min, e_max] by mapping r <-> e
-  - Clamp final SM to [sm_min, sm_max]
-  - Protect against near-zero denominators in analytic r inversion
-
-Inputs:
-  --tb : NPZ with TB on fine grid (key auto-detected)
-Optional maps (NPZ on same grid):
-  --Teff-npz : key Teff_K (used for Ts and Tc by default)
-  --Ts-npz   : key Ts_K
-  --Tc-npz   : key Tc_K
-  --theta-npz: key theta_deg  (incidence angle per-pixel)
-  --tau-npz  : key tau
-  --omega-npz: key omega
-  --h-npz    : key h
-
-If map not provided, constants are used.
+Notes and design decisions:
+- The implementation is vectorized over the 2D array using NumPy for speed.
+- Regularization choices (e_min, e_max, sm_min, sm_max, den_eps) are
+  exposed as CLI parameters to allow sensitivity testing.
+- The script returns deterministic arrays (no NaNs in final SM) by
+  clamping and filling invalid intermediate results conservatively.
 """
 
 from __future__ import annotations
@@ -48,7 +40,7 @@ from typing import Dict, Optional, Tuple
 
 import numpy as np
 
-# Optional georef dependencies; script works without them
+# Optional georef dependencies; non-fatal if absent (we store tuples)
 try:
     from affine import Affine
 except Exception:
@@ -58,18 +50,25 @@ except Exception:
 # -----------------------------
 # Helpers: IO / parsing
 # -----------------------------
+
 def npz_load(path: Path) -> Dict:
+    """Load an NPZ as a dict and raise if missing.
+
+    Uses allow_pickle=True to be robust to object-typed metadata (e.g. WKT).
+    """
     if not path.exists():
         raise FileNotFoundError(f"Missing file: {path}")
     return dict(np.load(path, allow_pickle=True))
 
 
 def guess_date_from_name(name: str) -> Optional[str]:
+    """Try to extract YYYYMMDD from a filename for use in default outputs."""
     m = re.search(r"(19|20)\d{6}", name)  # YYYYMMDD
     return m.group(0) if m else None
 
 
 def find_key(d: Dict, candidates) -> Optional[str]:
+    """Return the first key in `candidates` that exists in dict `d` or None."""
     for k in candidates:
         if k in d:
             return k
@@ -77,6 +76,11 @@ def find_key(d: Dict, candidates) -> Optional[str]:
 
 
 def find_tb_key(d: Dict) -> str:
+    """Heuristic to locate the TB array key in an NPZ file.
+
+    Looks for common canonical keys first and then falls back to the
+    first 2D numeric array found. Raises KeyError when no candidate exists.
+    """
     candidates = [
         "TB_fine", "TB_FINE", "tb_fine",
         "TB", "tb",
@@ -93,6 +97,11 @@ def find_tb_key(d: Dict) -> str:
 
 
 def to_affine(transform_obj):
+    """Normalize transform to tuple or return None.
+
+    Supports Affine instance, tuple/list, or numpy array with 6 elements.
+    Keeps caller code simple when we write the transform back to NPZ.
+    """
     if transform_obj is None:
         return None
     if Affine is not None and isinstance(transform_obj, Affine):
@@ -105,6 +114,11 @@ def to_affine(transform_obj):
 
 
 def get_hw_from_tb_and_meta(TB: np.ndarray, d: Dict) -> Tuple[int, int]:
+    """Return authoritative height,width for TB using metadata when present.
+
+    If the NPZ includes 'height'/'width' and they match the TB shape, use
+    them to avoid ambiguity when TB has been cropped or padded earlier.
+    """
     h, w = TB.shape
     if "height" in d and "width" in d:
         hh = int(d["height"])
@@ -115,6 +129,10 @@ def get_hw_from_tb_and_meta(TB: np.ndarray, d: Dict) -> Tuple[int, int]:
 
 
 def load_map_or_const(npz_path: Optional[Path], key: str, shape: Tuple[int, int], const: float) -> np.ndarray:
+    """Load a per-pixel map from NPZ or create a constant array of the given shape.
+
+    Validates that the loaded array matches the expected shape and casts to float32.
+    """
     if npz_path is None:
         return np.full(shape, float(const), dtype=np.float32)
     dd = npz_load(npz_path)
@@ -129,7 +147,13 @@ def load_map_or_const(npz_path: Optional[Path], key: str, shape: Tuple[int, int]
 # -----------------------------
 # Physics: Fresnel + inversion
 # -----------------------------
+
 def fresnel_rh(eps: np.ndarray, theta_rad: np.ndarray) -> np.ndarray:
+    """Horizontal-pol smooth-surface reflectivity for real ε (vectorized).
+
+    Uses stable form with sqrt(max(eps - sin^2(theta), epsilon)) to avoid
+    complex results when numerical rounding or small negative values occur.
+    """
     st = np.sin(theta_rad)
     ct = np.cos(theta_rad)
     root = np.sqrt(np.maximum(eps - st * st, 1e-12))
@@ -138,6 +162,7 @@ def fresnel_rh(eps: np.ndarray, theta_rad: np.ndarray) -> np.ndarray:
 
 
 def fresnel_rv(eps: np.ndarray, theta_rad: np.ndarray) -> np.ndarray:
+    """Vertical-pol smooth-surface reflectivity for real ε (vectorized)."""
     st = np.sin(theta_rad)
     ct = np.cos(theta_rad)
     root = np.sqrt(np.maximum(eps - st * st, 1e-12))
@@ -146,9 +171,12 @@ def fresnel_rv(eps: np.ndarray, theta_rad: np.ndarray) -> np.ndarray:
 
 
 def invert_eps_from_r(r_target: np.ndarray, theta_rad: np.ndarray, tb_pol: str, iters: int = 40) -> np.ndarray:
-    """
-    Vectorized bisection inversion for smooth-surface Fresnel reflectivity:
-      r_smooth(eps) = r_target, eps in [1, 80]
+    """Bisection invert reflectivity -> dielectric constant ε for each pixel.
+
+    r_target is clamped to [0, 0.9999] to avoid impossible values. The search
+    interval for ε is [1, 80], which comfortably contains realistic soil
+    permittivity values for moist soils. The function performs vectorized
+    bisection for robustness and avoids Newton-like instabilities.
     """
     r = np.clip(r_target.astype(np.float32), 0.0, 0.9999)
     lo = np.full_like(r, 1.0, dtype=np.float32)
@@ -171,8 +199,9 @@ def invert_eps_from_r(r_target: np.ndarray, theta_rad: np.ndarray, tb_pol: str, 
 
 
 def topp_eps_to_sm(eps: np.ndarray) -> np.ndarray:
-    """
-    Topp et al. polynomial (approx). Clips to [0, 0.6].
+    """Approximate Topp polynomial mapping ε -> volumetric soil moisture (SM).
+
+    The returned SM is clamped to [0, 0.6] to avoid nonphysical extrapolations.
     """
     e = eps.astype(np.float32)
     mv = (-0.053 +
@@ -185,6 +214,7 @@ def topp_eps_to_sm(eps: np.ndarray) -> np.ndarray:
 # -----------------------------
 # ATBD tau-omega inversion
 # -----------------------------
+
 def solve_r_rough_from_tb_atbd(
     TB: np.ndarray,
     Ts: np.ndarray,
@@ -194,14 +224,12 @@ def solve_r_rough_from_tb_atbd(
     theta_rad: np.ndarray,
     den_eps: float = 1e-3,
 ) -> Tuple[np.ndarray, np.ndarray]:
-    """
-    Invert ATBD Eq.1 for rough-surface reflectivity r_p at look angle.
+    """Analytically invert ATBD Eq.1 for rough reflectivity r_rough per pixel.
 
-    TB = Ts*(1-r)*gamma + Tc*(1-omega)*(1-gamma)*(1 + r*gamma)
-    where gamma = exp(-tau * sec(theta))
-
-    Returns:
-      r_rough, gamma
+    The algebra rearranges Eq.1 to isolate r (rough reflectivity) and returns
+    r_rough together with gamma = exp(-tau * sec(theta)). To avoid division
+    by very small denominators we clamp/regularize the denominator using
+    `den_eps` which stabilizes pixels where the analytic solution is ill-conditioned.
     """
     sec = 1.0 / np.maximum(np.cos(theta_rad), 1e-6)
     gamma = np.exp(-tau * sec).astype(np.float32)
@@ -214,7 +242,7 @@ def solve_r_rough_from_tb_atbd(
     num = (TB - (Ts * gamma + Tc * A)).astype(np.float32)
     den = (gamma * (Tc * A - Ts)).astype(np.float32)
 
-    # Protect ill-conditioned pixels: when den ~ 0, r can blow up
+    # Guard against near-zero denominators by replacing small |den| with den_eps
     den_abs = np.abs(den)
     den_safe = np.where(den_abs < float(den_eps),
                         np.sign(den) * float(den_eps) + (den == 0) * float(den_eps),
@@ -227,10 +255,11 @@ def solve_r_rough_from_tb_atbd(
 
 
 def undo_roughness(r_rough: np.ndarray, h: np.ndarray, theta_rad: np.ndarray, x: float = 2.0) -> np.ndarray:
-    """
-    Simplified ATBD roughness:
+    """Undo the exponential roughness parameterization to estimate r_smooth.
+
+    Based on the ATBD simplified model:
       r_rough ≈ r_smooth * exp(-h * cos(theta)^x)
-      => r_smooth = r_rough * exp(+h * cos(theta)^x)
+    so r_smooth = r_rough * exp(+h * cos(theta)^x)
     """
     c = np.maximum(np.cos(theta_rad), 0.0).astype(np.float32)
     factor = np.exp(h * (c ** x)).astype(np.float32)
@@ -241,6 +270,7 @@ def undo_roughness(r_rough: np.ndarray, h: np.ndarray, theta_rad: np.ndarray, x:
 # -----------------------------
 # Main
 # -----------------------------
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--tb", type=Path, required=True, help="Path to TB fine NPZ")
@@ -276,12 +306,15 @@ def main():
     # Regularization (NO NaNs, avoid SM=0 saturation)
     ap.add_argument("--e-min", type=float, default=0.65, help="Min emissivity clamp (physical regularization)")
     ap.add_argument("--e-max", type=float, default=0.98, help="Max emissivity clamp (avoid e->1 saturation)")
-    ap.add_argument("--sm-min", type=float, default=0.05, help="Min soil moisture (avoid SM=0 artifacts)")  # <- requested
+    ap.add_argument("--sm-min", type=float, default=0.05, help="Min soil moisture (avoid SM=0 artifacts)")
     ap.add_argument("--sm-max", type=float, default=0.45, help="Max soil moisture cap")
     ap.add_argument("--den-eps", type=float, default=1e-3, help="Min abs(denominator) to avoid blow-ups")
 
     args = ap.parse_args()
 
+    # --------------------------
+    # Load input TB and meta
+    # --------------------------
     tb_path = args.tb
     d = npz_load(tb_path)
 
@@ -298,59 +331,75 @@ def main():
     hgt, wdt = get_hw_from_tb_and_meta(TB, d)
     shape = (hgt, wdt)
 
-    # Temperatures: prefer explicit Ts/Tc; else Teff
+    # --------------------------
+    # Load or default auxiliary maps
+    # --------------------------
+    # Temperature maps: Ts/Tc preferred; else Teff is used for both
     Teff = load_map_or_const(args.Teff_npz, "Teff_K", shape, args.Teff_const)
     Ts = load_map_or_const(args.Ts_npz, "Ts_K", shape, args.Teff_const) if args.Ts_npz else Teff.copy()
     Tc = load_map_or_const(args.Tc_npz, "Tc_K", shape, args.Teff_const) if args.Tc_npz else Teff.copy()
 
-    # Theta
+    # Theta (incidence)
     theta_deg = load_map_or_const(args.theta_npz, "theta_deg", shape, args.theta_const_deg)
     theta_rad = np.deg2rad(theta_deg.astype(np.float32))
 
-    # tau, omega, h
+    # Tau, omega, roughness
     tau = load_map_or_const(args.tau_npz, "tau", shape, args.tau_const)
     omega = load_map_or_const(args.omega_npz, "omega", shape, args.omega_const)
     hcoef = load_map_or_const(args.h_npz, "h", shape, args.h_const)
 
-    # 1) Invert ATBD Eq.1 for rough reflectivity
+    # --------------------------
+    # 1) Invert ATBD Eq.1 for rough reflectivity r_rough
+    # --------------------------
     r_rough, gamma = solve_r_rough_from_tb_atbd(
         TB, Ts=Ts, Tc=Tc, tau=tau, omega=omega, theta_rad=theta_rad, den_eps=float(args.den_eps)
     )
 
-    # Track invalids, but DO NOT produce NaNs in output SM (we'll regularize instead)
+    # Keep a copy of raw r_rough for diagnostics; we will regularize below
     r_rough_raw = r_rough.copy()
     invalid = ~np.isfinite(r_rough_raw)
 
-    # --- Physical regularization via emissivity bounds (prevents SM -> 0 saturation) ---
+    # --------------------------
+    # Regularization: clamp emissivity (prevents SM->0 degeneracy) and bound r
+    # --------------------------
+    # e_rough_reg is clipped to [e_min, e_max] then converted back to r
     e_rough_reg = np.clip(1.0 - r_rough, float(args.e_min), float(args.e_max)).astype(np.float32)
     r_rough = (1.0 - e_rough_reg).astype(np.float32)
 
     # Bound reflectivity (rough) to [0, 0.999]
     r_rough = np.clip(r_rough, 0.0, 0.999).astype(np.float32)
 
-    # 2) Undo roughness to get smooth reflectivity
+    # --------------------------
+    # 2) Undo roughness to estimate r_smooth
+    # --------------------------
     r_smooth = undo_roughness(r_rough, h=hcoef, theta_rad=theta_rad, x=float(args.roughness_x))
     r_smooth_raw = r_smooth.copy()
     invalid |= ~np.isfinite(r_smooth_raw)
     r_smooth = np.clip(r_smooth, 0.0, 0.999).astype(np.float32)
 
-    # 3) Fresnel inversion (smooth)
+    # --------------------------
+    # 3) Fresnel inversion (r_smooth -> ε)
+    # --------------------------
     eps = invert_eps_from_r(r_smooth, theta_rad=theta_rad, tb_pol=tb_pol, iters=40).astype(np.float32)
 
-    # 4) epsilon -> SM
+    # --------------------------
+    # 4) ε -> SM via Topp polynomial
+    # --------------------------
     if args.sm_method == "topp":
         SM = topp_eps_to_sm(eps)
     else:
         raise ValueError(f"Unknown --sm-method: {args.sm_method}")
 
-    # Final SM clamp (requested: no NaNs, no SM=0)
+    # Final SM clamp to avoid extreme values and ensure no NaNs in output
     SM = np.clip(SM, float(args.sm_min), float(args.sm_max)).astype(np.float32)
 
-    # emissivities
+    # Also compute emissivities for output/diagnostics
     e_rough = (1.0 - r_rough).astype(np.float32)
     e_smooth = (1.0 - r_smooth).astype(np.float32)
 
-    # Output
+    # --------------------------
+    # Write output NPZ including intermediate diagnostics
+    # --------------------------
     out_dir = args.out_dir if args.out_dir is not None else tb_path.parent
     out_dir.mkdir(parents=True, exist_ok=True)
     out_name = args.out_name or f"SM_fine_{date}_TB{tb_pol}_tauomega_ATBD_reg.npz"

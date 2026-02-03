@@ -1,16 +1,29 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-step2_smap_boulder.py — Prepare SMAP radiometer TB and SMAP radar backscatter
-aligned on a common grid.
+step1_coarse_copol.py — Prepare SMAP radiometer TB and SMAP radar backscatter
+aligned on a common grid (coarse 36 km default, or bbox-defined template).
 
-Adds:
-  - bbox-based template (non-global) via --bbox and --pixel-size
-  - safer radar transform fallback (no identity)
+This commented version contains a clear module docstring and function-level
+docstrings plus inline explanations so that another developer can quickly
+understand the assumptions and fallbacks used when reading SMAP L3 and
+radar products.
+
+Key behaviors:
+- Create a GeoTIFF template either from a SMAP L3 product (global EASE2 36 km)
+  or from an explicit lon/lat bounding box + pixel size.
+- Load TB from SMAP L3 (several name heuristics and optional AM/PM groups).
+- Load gridded radar σ0 (SPL3SMA) and fall back to conservative EASE2 3 km
+  transform when geolocation is not available.
+- Optionally bin XPOL swath (L1C) to the template using simple averaging.
+- Save an NPZ with aligned arrays and metadata for downstream processing.
 
 Outputs:
-  data/interim/aligned-smap-YYYYMMDD.npz:
+  data/interim/aligned-smap-YYYYMMDD.npz containing:
     TBc_2d, S_pp_dB, (optional) S_xpol_dB, crs_wkt, transform, height, width, meta
+
+This file is intended for use from the command-line but is also suitable for
+importing into unit tests or other pipelines.
 """
 
 from __future__ import annotations
@@ -51,13 +64,23 @@ PROCESSED.mkdir(parents=True, exist_ok=True)
 # Basic utilities
 # -------------------------------------------------------------------------
 
+
 def to_db(arr: np.ndarray, eps: float = 1e-10) -> np.ndarray:
-    """Convert power array to decibels (dB) with clipping and float32 output."""
+    """Convert a power-like array to decibels (dB).
+
+    Clips at `eps` to avoid log(0), and returns float32 for storage.
+    Use this for radar linear -> dB conversion if the magnitude suggests
+    the values are not already in dB (large positive values).
+    """
     return (10.0 * np.log10(np.clip(arr, eps, None))).astype(np.float32)
 
 
 def is_mono_eq(v: np.ndarray, rtol: float = 1e-6, atol: float = 1e-6) -> bool:
-    """Check if a 1D array is monotonic and equally spaced."""
+    """Return True if 1D coordinate `v` is monotonic and equally spaced.
+
+    This helper is used to detect regular grid coordinates in xarray/NetCDF
+    datasets and to build Affine transforms when spacing is uniform.
+    """
     if v.ndim != 1 or v.size < 2:
         return False
     d = np.diff(v.astype(np.float64))
@@ -65,7 +88,7 @@ def is_mono_eq(v: np.ndarray, rtol: float = 1e-6, atol: float = 1e-6) -> bool:
 
 
 def open_h5(path: str) -> h5py.File:
-    """Open HDF5 file, raising if missing."""
+    """Open an HDF5 file or raise a helpful error if it is missing."""
     p = Path(path)
     if not p.exists():
         raise FileNotFoundError(f"File does not exist: {p}")
@@ -73,7 +96,11 @@ def open_h5(path: str) -> h5py.File:
 
 
 def _write_debug_tif(path: Path, arr: np.ndarray, transform: Affine, crs: CRS) -> None:
-    """Write a single-band float32 GeoTIFF for QA."""
+    """Write a single-band float32 GeoTIFF for QA and debugging.
+
+    Produces a compressed tiled GeoTIFF (deflate) suitable for quick visual
+    inspection in QGIS or similar tools.
+    """
     prof = {
         "driver": "GTiff",
         "dtype": "float32",
@@ -98,8 +125,9 @@ def _write_debug_tif(path: Path, arr: np.ndarray, transform: Affine, crs: CRS) -
 # Template handling
 # -------------------------------------------------------------------------
 
+
 def load_template(template_path: str) -> tuple[CRS, Affine, int, int, dict]:
-    """Load a GeoTIFF template."""
+    """Load a GeoTIFF template and return its CRS, transform, shape and profile."""
     with rasterio.open(template_path) as ds:
         crs = ds.crs
         transform = ds.transform
@@ -109,9 +137,12 @@ def load_template(template_path: str) -> tuple[CRS, Affine, int, int, dict]:
 
 
 def make_template_from_smap_l3(smap_l3_path: str, out_template: str) -> str:
-    """
-    Create a global EASE2-like template GeoTIFF from a SMAP L3 radiometer file.
-    Uses EPSG:6933 and ~36 km pixels.
+    """Create a global EASE2-like GeoTIFF template from a SMAP L3 file.
+
+    This function attempts to inspect the SMAP L3 file to determine the
+    2D array shape automatically; if that fails it falls back to the
+    canonical global EASE2 36 km shape (ny=406, nx=964). The output CRS
+    defaults to EPSG:6933 (EASE2 projection) and pixel size to ~36 km.
     """
     ny = nx = None
 
@@ -147,6 +178,7 @@ def make_template_from_smap_l3(smap_l3_path: str, out_template: str) -> str:
                 continue
 
     if ny is None or nx is None:
+        # Fallback to canonical EASE2 36 km global size if automatic detection fails
         ny, nx = 406, 964
         warnings.warn(
             "No 2D variables found in SMAP L3 to derive template shape. "
@@ -189,11 +221,12 @@ def make_template_from_bbox(
     pixel_size_m: float = 36000.0,
     crs_out: CRS = CRS.from_epsg(6933),
 ) -> str:
-    """
-    Create a GeoTIFF template covering ONLY a bbox.
+    """Create a GeoTIFF template covering a provided lon/lat bbox (EPSG:4326).
 
-    bbox_lonlat = (lon_min, lat_min, lon_max, lat_max) in EPSG:4326.
-    Output CRS default EPSG:6933 (EASE2 global).
+    The bounding box is transformed to the output CRS and a template with
+    the requested pixel size is created (width/height are ceil'd to ensure
+    coverage). This is useful when the user wants a local subset rather
+    than the global grid.
     """
     lon_min, lat_min, lon_max, lat_max = bbox_lonlat
 
@@ -242,7 +275,14 @@ def make_template_from_bbox(
 # SMAP radiometer (L3 TB / L3 SM with TB)
 # -------------------------------------------------------------------------
 
+
 def _guess_tb_var_from_l3(ds: xr.Dataset) -> str | None:
+    """Try heuristics to find a brightness temperature variable in a SMAP L3 group.
+
+    Looks at variable names and attributes like `long_name` / `standard_name` to
+    identify a TB-like field even when names vary across product versions.
+    Returns the variable name or None if not found.
+    """
     patt_names = [
         r".*tb.*corrected.*", r".*TB.*corrected.*",
         r".*tb_[hv]_.*", r".*TB_[HV]_.*",
@@ -262,6 +302,12 @@ def _guess_tb_var_from_l3(ds: xr.Dataset) -> str | None:
 
 
 def load_smap_l3_tb_2d(path_l3: str, pol: str = "V", date: str | None = None, tb_group: str = "AUTO") -> np.ndarray:
+    """Load a 2D brightness temperature array from a SMAP L3 product.
+
+    The function tries multiple group names and variable name patterns; it
+    also supports selecting AM/PM groups when the user prefers one pass.
+    If `date` is present in a time dimension it attempts to select that time.
+    """
     pol = pol.upper()
     if pol not in ("H", "V"):
         raise ValueError("pol must be 'H' or 'V'.")
@@ -293,6 +339,7 @@ def load_smap_l3_tb_2d(path_l3: str, pol: str = "V", date: str | None = None, tb
                     try:
                         ds = ds.sel(time=np.datetime64(date))
                     except Exception:
+                        # If time selection fails, we continue to try other groups
                         pass
 
                 cand_names = [
@@ -310,6 +357,7 @@ def load_smap_l3_tb_2d(path_l3: str, pol: str = "V", date: str | None = None, tb
                 tb_name = _guess_tb_var_from_l3(ds)
                 if tb_name is not None:
                     da = ds[tb_name]
+                    # Handle different dimension orders and pol dimension names
                     if "pol" in da.dims:
                         pol_vals = [str(p).upper() for p in da.coords["pol"].values]
                         if pol in pol_vals:
@@ -335,6 +383,13 @@ def get_TBc_2d(
     qa: bool = False,
     tb_group: str = "AUTO",
 ) -> np.ndarray:
+    """Return TB reprojected to a template grid.
+
+    Attempts to read CRS/transform from the SMAP L3 file. If the original
+    file contains regular x/y coordinates we build an Affine transform from
+    them; otherwise we conservatively fall back to the provided template
+    CRS and transform (so that reprojecting remains predictable).
+    """
     TB = load_smap_l3_tb_2d(path_l3, pol=pol, date=date, tb_group=tb_group)
 
     src_crs = None
@@ -342,6 +397,7 @@ def get_TBc_2d(
     try:
         with xr.open_dataset(path_l3, engine="h5netcdf", phony_dims="sort") as ds:
             grid_mapping = None
+            # Find a variable that points to a grid_mapping object (CF style)
             for v in ds.data_vars:
                 gm = ds[v].attrs.get("grid_mapping")
                 if gm and gm in ds.variables:
@@ -372,6 +428,7 @@ def get_TBc_2d(
         src_crs = None
         src_transform = None
 
+    # If we couldn't infer CRS/transform from the product, fall back to template
     if src_crs is None:
         src_crs = template_crs
     if src_transform is None:
@@ -402,7 +459,15 @@ def get_TBc_2d(
 # SMAP radar gridded σ0 (SPL3SMA etc.)
 # -------------------------------------------------------------------------
 
+
 def _select_radar_var(ds: xr.Dataset, pol: str) -> xr.DataArray:
+    """Heuristics to pick a radar σ0 / backscatter variable from the dataset.
+
+    Checks common name patterns first, then inspects attributes like
+    `long_name`, `standard_name`, and `units` to spot backscatter-like
+    variables. If a polarization dimension is found it will return the
+    slice corresponding to the requested pol (VV/HH).
+    """
     pol = pol.upper()
     cand_names = [
         f"sigma0_{pol.lower()}",
@@ -427,6 +492,7 @@ def _select_radar_var(ds: xr.Dataset, pol: str) -> xr.DataArray:
         name_lower = v.lower()
         attrs = " ".join(str(da.attrs.get(k, "")).lower() for k in ("long_name", "standard_name", "units", "description"))
         if "sigma0" in name_lower or "backscatter" in name_lower or "sigma0" in attrs:
+            # Respect explicit polarization dimensions if present
             for dim in ("pol", "polarization", "polarisation"):
                 if dim in da.dims:
                     pol_vals = [str(p).upper() for p in da.coords[dim].values]
@@ -438,6 +504,14 @@ def _select_radar_var(ds: xr.Dataset, pol: str) -> xr.DataArray:
 
 
 def _get_crs_transform_from_da(da: xr.DataArray, ds: xr.Dataset) -> tuple[CRS | None, Affine | None]:
+    """Attempt to derive CRS and Affine transform from an xarray DataArray.
+
+    - Looks for a CF-style `grid_mapping` variable with `spatial_ref` or `crs_wkt`.
+    - If regular x/y or easting/northing coordinates exist and are equally
+      spaced, builds an Affine from them.
+
+    Returns (crs_or_None, transform_or_None).
+    """
     src_crs = None
     src_transform = None
 
@@ -470,9 +544,14 @@ def _get_crs_transform_from_da(da: xr.DataArray, ds: xr.Dataset) -> tuple[CRS | 
 
 
 def load_smap_radar_sigma0_2d(radar_path: str, pol: str = "VV") -> tuple[np.ndarray, Affine, CRS]:
-    """
-    Load SMAP radar σ0 (dB) and geolocation.
-    If CRS/transform can't be inferred, fallback to EASE2 3km global transform (NOT identity).
+    """Load an approximately 2D radar σ0 array (in dB) together with CRS/transform.
+
+    The function prefers an xarray-based approach that preserves CRS and
+    transform information if present; otherwise, it falls back to a HDF5
+    scan heuristic (searching for datasets whose names contain 'sigma0').
+
+    When geolocation cannot be inferred it uses a conservative EASE2 3 km
+    world transform (not identity) to avoid creating invalid geo-references.
     """
     pol = pol.upper()
 
@@ -503,6 +582,7 @@ def load_smap_radar_sigma0_2d(radar_path: str, pol: str = "VV") -> tuple[np.ndar
     except Exception:
         pass
 
+    # Fallback HDF5 scan: robust to products that do not follow CF / xarray patterns
     print("[WARN] Xarray-based radar σ0 detection failed. Falling back to raw HDF5 scan.")
     with open_h5(radar_path) as h5f:
         best = None  # (name, dset, score)
@@ -556,12 +636,19 @@ def load_smap_radar_sigma0_2d(radar_path: str, pol: str = "VV") -> tuple[np.ndar
 # SMAP L1C XPOL SWATH
 # -------------------------------------------------------------------------
 
+
 def load_smap_l1c_xpol_swath(
     radar_l1c_path: str,
     which: str = "aft",
     apply_qual_flags: bool = True,
     convert_to_db: bool = True,
 ) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """Load XPOL swath arrays and their cell lon/lat coordinates from an L1C file.
+
+    Returns (sigma, lon, lat). If `apply_qual_flags` is True and a
+    `cell_sigma0_qual_flag_xpol` dataset exists, non-zero flags are set to
+    NaN in the returned sigma array. Optionally converts linear sigma to dB.
+    """
     which = (which or "aft").lower()
     if which not in ("aft", "fore", "mean"):
         raise ValueError("which must be 'aft', 'fore', or 'mean'")
@@ -587,6 +674,7 @@ def load_smap_l1c_xpol_swath(
             sigma = sigma.astype(np.float32, copy=False)
             sigma[qual != 0] = np.nan
 
+    # Clean common fill values and enforce sensible limits
     for fv in (0, -9999, -999, -32768, 65535):
         sigma[sigma == fv] = np.nan
 
@@ -605,6 +693,7 @@ def load_smap_l1c_xpol_swath(
 # Reprojection helpers
 # -------------------------------------------------------------------------
 
+
 def reproject_to_template(
     src_arr: np.ndarray,
     src_transform: Affine,
@@ -614,6 +703,10 @@ def reproject_to_template(
     tpl_shape: tuple[int, int],
     resampling: ResampEnum = ResampEnum.bilinear,
 ) -> np.ndarray:
+    """Reproject `src_arr` to `tpl_crs`/`tpl_transform` with requested resampling.
+
+    Returns an array of shape `tpl_shape` with NaNs where data is not present.
+    """
     dst = np.full(tpl_shape, np.nan, dtype=np.float32)
     reproject(
         source=src_arr,
@@ -638,6 +731,12 @@ def swath_average_to_template(
     tpl_shape: tuple[int, int],
     src_crs: CRS = CRS.from_epsg(4326),
 ) -> np.ndarray:
+    """Bin a swath of point samples into template pixels using simple averaging.
+
+    This is a crude but effective way to convert swath cell-level products to
+    a regular grid: we transform cell lon/lat to the template CRS, compute
+    which pixel each sample falls into, and average values per-pixel.
+    """
     h, w = tpl_shape
     dst_sum = np.zeros((h, w), dtype=np.float64)
     dst_cnt = np.zeros((h, w), dtype=np.int32)
@@ -667,6 +766,7 @@ def swath_average_to_template(
     cols = cols[inside]
     v = v[inside]
 
+    # Efficient per-pixel accumulation using numpy.add.at
     np.add.at(dst_sum, (rows, cols), v)
     np.add.at(dst_cnt, (rows, cols), 1)
 
@@ -680,10 +780,18 @@ def swath_average_to_template(
 # Pipeline
 # -------------------------------------------------------------------------
 
+
 def prepare_smap_radiometer_radar(args) -> tuple[np.ndarray, np.ndarray]:
+    """Main pipeline to prepare aligned SMAP TB and radar σ0 on a template.
+
+    Returns (TBc_2d, S_pp_db) where both arrays are on the same grid. Side
+    effects: writes an NPZ to `data/interim` with arrays and metadata.
+    The function implements safe fallbacks so it can be used in tests where
+    full geolocation metadata might not be available.
+    """
     S_xpol_db = None
 
-    # 0) TEMPLATE: bbox-based OR global fallback
+    # 0) TEMPLATE: create from bbox if provided, otherwise use or build global template
     if args.bbox is not None:
         # If user provided --template, we create it if missing; else use a default bbox template name
         tpl_path = Path(args.template) if args.template else (PROCESSED / "template_bbox_ease2.tif")
@@ -704,8 +812,7 @@ def prepare_smap_radiometer_radar(args) -> tuple[np.ndarray, np.ndarray]:
     tpl_shape = (tpl_h, tpl_w)
     args.template = str(tpl_path)
 
-    # Optional: if you want to enforce coarse 36 km only when NOT using bbox/pixel-size override:
-    # Here we simply warn if pixel size differs a lot from user expectation.
+    # Optional: warn if pixel size is unexpected
     dx = float(tpl_transform.a)
     dy = float(-tpl_transform.e)
     print(f"[INFO] Template px size: dx={dx:.1f} m, dy={dy:.1f} m, shape={tpl_shape}")
@@ -800,7 +907,7 @@ def prepare_smap_radiometer_radar(args) -> tuple[np.ndarray, np.ndarray]:
     np.savez_compressed(out_npz, **save_kwargs)
     print(f"[OK] Saved {out_npz}")
 
-    # Quick sanity print (te ayuda a ver si gamma se quedará vacío)
+    # Quick sanity print
     print(f"[STAT] TB finite: {np.isfinite(TBc_2d).sum()} / {TBc_2d.size}")
     print(f"[STAT] Spp finite: {np.isfinite(S_pp_db).sum()} / {S_pp_db.size}")
     if S_xpol_db is not None:
@@ -813,7 +920,13 @@ def prepare_smap_radiometer_radar(args) -> tuple[np.ndarray, np.ndarray]:
 # CLI
 # -------------------------------------------------------------------------
 
+
 def parse_args() -> argparse.Namespace:
+    """Build argument parser for this script.
+
+    Provides options to select date, polarization, input paths, and whether
+    to generate an explicit bbox template. Also supports debug QA output.
+    """
     p = argparse.ArgumentParser(description="Align SMAP radiometer TB and SMAP radar σ0 on a common grid.")
     p.add_argument("--date", type=str, required=False, help="Date YYYY-MM-DD (optional).")
     p.add_argument("--pol", type=str, default="V", help="SMAP TB polarisation: H or V (default: V).")
