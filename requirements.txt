@@ -1,0 +1,70 @@
+# Project requirements for the tfg-nisar processing pipeline
+# This file lists runtime, geospatial, IO, and developer/test dependencies
+# with minimum recommended versions (use a virtualenv or conda env).
+#
+# Notes:
+# - On Linux/Windows, installing GDAL/rasterio is easiest using conda (e.g., "conda install -c conda-forge gdal rasterio").
+# - Exact pinned versions may be updated as the project evolves; these are conservative minimums known to work with
+#   the project code (2024–2026 era). Replace the ranges with exact pins when reproducible builds are required.
+
+# -------------------------
+# Core scientific stack
+# -------------------------
+numpy>=1.24,<2          # Numerical arrays and vectorized math (used throughout)
+scipy>=1.10,<2          # Statistics (pearsonr), optimization utilities
+matplotlib>=3.6,<4      # Plotting and figures
+
+# -------------------------
+# File formats / HDF5 / NetCDF
+# -------------------------
+h5py>=3.8               # Read/write HDF5 (SMAP / NISAR granule access)
+h5netcdf>=0.14          # Optional: xarray -> netCDF/HDF5 engine
+xarray>=2023.11         # Helpful for CF-like datasets and high-level IO
+
+# -------------------------
+# Geospatial / reprojection
+# -------------------------
+rasterio>=1.3.6         # Raster reprojection / transforms (install via conda-forge if possible)
+affine>=2.4.0           # Affine transform helpers (used to build 6-element transforms)
+pyproj>=3.5             # CRS/Transformer utilities
+shapely>=2.1            # Geometry utilities (optional, commonly useful in geo projects)
+
+# -------------------------
+# SAR / radar specific and utilities
+# -------------------------
+h5py (already listed)    # HDF5 dataset access for NISAR GCOV/L1C
+# No dedicated SAR processing libs are required; the repo uses numpy/h5py + rasterio
+
+# -------------------------
+# SMAP-specific / API
+# -------------------------
+earthaccess>=1.0        # Optional: Earthdata Login / SMAP granule download helper (used by step0_download_data)
+
+# -------------------------
+# Optional but useful
+# -------------------------
+seaborn>=0.12           # Higher-level plotting styles (optional)
+Pillow>=9.0             # Image backends for matplotlib
+
+# -------------------------
+# Development / testing
+# -------------------------
+pytest>=7.0             # Test runner for unit/integration tests
+pytest-mock>=3.10       # Helpful for mocking in tests
+black>=23.9             # Code formatter (recommended)
+flake8>=5.0             # Linting
+pre-commit>=2.20        # Git hooks to run linters/formatters
+
+# -------------------------
+# Notes for Windows users
+# -------------------------
+# - Prefer installing GDAL/rasterio via conda-forge to avoid binary build issues:
+#     conda create -n tfg-nisar python=3.11
+#     conda activate tfg-nisar
+#     conda install -c conda-forge gdal rasterio pyproj shapely
+#     pip install -r requirements.txt
+# - For reproducible lockfiles, consider using pip-tools or conda-lock.
+#
+# If you want a machine-readable pinned file for deployments, run:
+#   pip-compile --generate-hashes --output-file=requirements.txt requirements.in
+# or generate a conda environment YAML via `conda env export`.
