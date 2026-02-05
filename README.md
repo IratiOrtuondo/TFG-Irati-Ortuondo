@@ -1,4 +1,4 @@
-# NISAR-SMAP Disaggregation Pipeline
+# SMAP-SMAP Soil Moisture Disaggregation Pipeline
 
 This repository provides a complete workflow to disaggregate SMAP L3 brightness temperature (TB) from 36 km to fine resolution (~3 km) using SMAP radar backscatter data. The pipeline implements an ATBD-consistent tau-omega radiative transfer model to retrieve high-resolution soil moisture from disaggregated TB.
 
@@ -275,6 +275,7 @@ python src\step4_final.py --tb <TB_file> --date 20150501 --Teff-npz <custom_Teff
 ## Citation
 
 If you use this workflow, please cite the original SMAP data products:
+- SMAP ATBD
 - SMAP L3 Radiometer: https://nsidc.org/data/spl3smp
 - SMAP L1C Radar: https://nsidc.org/data/spl1c_s0_lores
 
